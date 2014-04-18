@@ -22,6 +22,7 @@ public:
 	//constructors
 	Signature();
 	Signature(char* HexSignature);
+	~Signature();
 	//Processing
 	int SigHextoASCII();
 	int SigHextoASCII(char* HexSignature);

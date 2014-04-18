@@ -51,5 +51,10 @@ int Shared::SigDb::Signature::SigHextoASCII(char* HexSignature)
 	return this->SigHextoASCII();
 }
 
+Shared::SigDb::Signature::~Signature()
+{
+	delete[] this;
+}
+
 
 

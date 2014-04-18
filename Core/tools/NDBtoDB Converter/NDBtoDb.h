@@ -8,5 +8,6 @@ using namespace std;
 #define NDBtoDB_H
 
 void NDBtoDbConverter(char* NDBfile,char* DBfile);
+//int getLineCount(char* file);
 
 #endif
