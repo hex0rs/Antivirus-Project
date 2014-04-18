@@ -34,7 +34,7 @@ void Shared::Common::File::Process()
 	this->FileSize = input_file.tellg();
 	input_file.seekg(0,ios::beg);
 	this->BufferSize = this->FileSize;
-	this->Buffer = new char[this->FileSize];
+	this->Buffer = new char[(int)this->FileSize];
 	input_file.read(this->Buffer,this->BufferSize);
 	input_file.close();
 }

@@ -13,7 +13,7 @@ public:
 	char* FilePath;
 	streamoff FileSize;
 	char* Buffer;
-	int BufferSize;
+	streamoff BufferSize;
 	File();
 	File(char* FilePath);
 	void Process();

@@ -62,11 +62,5 @@ int Shared::SigDb::Database::init()
 		return 0;
 }
 
-Shared::SigDb::Database::~Database()
-{
-	for (int i = 0; i < SignaturesNumber;i++)
-	{
-		delete [] &SignaturesList[i];
-	}
-}
+
 

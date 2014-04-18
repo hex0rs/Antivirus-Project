@@ -22,7 +22,6 @@ public:
 	//constructors
 	Database();
 	Database(char* Path);
-	~Database();
 	//functions
 	int init();
 };

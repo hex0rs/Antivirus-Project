@@ -22,15 +22,17 @@ int main()
 	cout<<"Found in offset : "<<r<<endl;
 	*/
 
-	/*
-	// testing NDB database converter
+	
+	 //testing NDB database converter
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	cout << "Converting Main.ndb to db ..." << endl;
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
 	cout << "Done !!" << endl;
-*/
+
 	
 	// testing database loading and initializing 
-	Database d("Databases\\db.db");
+	Database d("Databases\\test.db");
 	d.init();
 
 	cout << endl;
@@ -38,13 +40,14 @@ int main()
 	cout << "Reading Signature Database from : " << d.Path << endl;
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 
-	for (int i = 0; i < d.SignaturesNumber;i++)
+	for (int i = 0; i < d.SignaturesNumber; i++)
 	{
-		cout << endl;
 		cout << "Virus Name : " << d.SignaturesList[i].VirusName << endl;
 		cout << "Hex Signature : " << d.SignaturesList[i].HexSignature << endl;
-		cout <<"ASCII Signature : " << d.SignaturesList[i].AsciiSignature << endl;
-		cout << endl <<"= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =" << endl;
+		cout << "ASCII Signature : " << d.SignaturesList[i].AsciiSignature << endl;
+		cout << "---------------------------------------------------------------------------" << endl;
 	}
+
+	cout << "Done !!" ; cin.ignore();
 	return 0;
 }

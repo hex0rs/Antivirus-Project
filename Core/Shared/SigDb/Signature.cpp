@@ -30,7 +30,7 @@ int Shared::SigDb::Signature::SigHextoASCII()
 	unsigned int x;
 	 while(len > 0)
 	 {
-		sscanf(c, "%2X", &x);
+		sscanf_s(c, "%2X", &x);
 		*(this->AsciiSignature) = (unsigned char)x;
 		this->AsciiSignature++;
 	    c += 2;
@@ -51,10 +51,6 @@ int Shared::SigDb::Signature::SigHextoASCII(char* HexSignature)
 	return this->SigHextoASCII();
 }
 
-Shared::SigDb::Signature::~Signature()
-{
-	delete[] this;
-}
 
 
 

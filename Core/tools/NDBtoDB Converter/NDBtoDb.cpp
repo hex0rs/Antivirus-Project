@@ -8,7 +8,7 @@ void NDBtoDbConverter(char* NDBfile, char* DBfile)
 	ofstream output_DBfile(DBfile, ios::out);
 	string line; string new_item; int pos = 0; 
 	
-	unsigned int line_count;
+	__int64 line_count;
 	line_count = count(istreambuf_iterator<char>(input_NDBfile), istreambuf_iterator<char>(), '\n');
 
 	output_DBfile << "1.1:17 April 2014 11-22:" << line_count+1 << ':' << endl;
