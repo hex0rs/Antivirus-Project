@@ -11,9 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A2DBA852-7C2B-4F7A-B6E2-E3C3DB5BBBFE}</ProjectGuid>
+    <ProjectGuid>{0884A021-D23C-41D5-9A1C-D32776079DF5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>Antivirus-Project</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,7 +43,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -58,7 +57,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -66,26 +65,28 @@
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="core\shared\database\Database.cpp" />
-    <ClCompile Include="core\shared\database\Signature.cpp" />
     <ClCompile Include="core\shared\File.cpp" />
+    <ClCompile Include="core\shared\sigdb\Database.cpp" />
+    <ClCompile Include="core\shared\sigdb\Signature.cpp" />
     <ClCompile Include="core\techniques\BMH.cpp" />
+    <ClCompile Include="Core\tools\NDBtoDB Converter\NDBtoDb.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\interface\Interface.h" />
     <ClInclude Include="core\shared\connections\Connections.h" />
-    <ClInclude Include="core\shared\database\Database.h" />
-    <ClInclude Include="core\shared\database\Signature.h" />
     <ClInclude Include="core\shared\File.h" />
     <ClInclude Include="core\shared\Shared.h" />
+    <ClInclude Include="core\shared\sigdb\Database.h" />
+    <ClInclude Include="core\shared\sigdb\Signature.h" />
     <ClInclude Include="core\techniques\Techniques.h" />
+    <ClInclude Include="Core\tools\NDBtoDB Converter\NDBtoDb.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

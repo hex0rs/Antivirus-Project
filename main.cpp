@@ -1,23 +1,35 @@
 #include "Core/Techniques/Techniques.h"
 #include "Core/Shared/Shared.h"
 #include "Core/Shared/File.h"
-#include "Core/Shared/Database/Database.h"
+#include "Core/Shared/SigDb/Database.h"
+#include "Core\tools\NDBtoDB Converter\NDBtoDb.h"
 #include <string>
+
 
 using namespace std;
 using namespace Techniques::Static;
 using namespace Shared::Common;
 using namespace Shared::SigDb;
-int main(int argc, char** argv)
+int main()
 {
-	// trying BMH Scanning Algorithim
+	
+	//trying BMH Scanning Algorithim
 	cout << "-------------------" << endl<< "Searching 'This' in test.exe " <<endl << "-------------------" << endl;
 	File x("test.exe");
 	x.Process();
 	BMH y("This",4,x.Buffer,x.BufferSize);
 	int r = y.search();
 	cout<<"Found in offset : "<<r<<endl;
-	Database d("Databases\\db.db");
+	
+
+	// testing NDB database converter
+	cout << "Converting Main.ndb to db ..." << endl;
+	NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
+	cout << "Done !!" << endl;
+
+
+	// testing database loading and initializing 
+	Database d("Databases\\test.db");
 	d.init();
 	cout << endl << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl << "Reading Signature Database from : " << d.Path << endl << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	for (int i = 0; i < d.SignaturesNumber;i++)

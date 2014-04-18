@@ -21,13 +21,16 @@
     <ClCompile Include="core\shared\File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="core\shared\database\Database.cpp">
+    <ClCompile Include="core\shared\sigdb\Database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="core\shared\database\Signature.cpp">
+    <ClCompile Include="core\shared\sigdb\Signature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="core\techniques\BMH.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\tools\NDBtoDB Converter\NDBtoDb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,13 +47,16 @@
     <ClInclude Include="core\shared\connections\Connections.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core\shared\database\Database.h">
+    <ClInclude Include="core\shared\sigdb\Database.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core\shared\database\Signature.h">
+    <ClInclude Include="core\shared\sigdb\Signature.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\techniques\Techniques.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\tools\NDBtoDB Converter\NDBtoDb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
