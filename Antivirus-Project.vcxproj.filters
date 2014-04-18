@@ -30,7 +30,7 @@
     <ClCompile Include="core\techniques\BMH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\tools\NDBtoDB Converter\NDBtoDb.cpp">
+    <ClCompile Include="core\tools\ndbtodb converter\NDBtoDb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,7 +56,7 @@
     <ClInclude Include="core\techniques\Techniques.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\tools\NDBtoDB Converter\NDBtoDb.h">
+    <ClInclude Include="core\tools\ndbtodb converter\NDBtoDb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0884A021-D23C-41D5-9A1C-D32776079DF5}</ProjectGuid>
+    <ProjectGuid>{05CB1A2F-CBAD-4C1D-BB18-757363AAE252}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -75,7 +75,7 @@
     <ClCompile Include="core\shared\sigdb\Database.cpp" />
     <ClCompile Include="core\shared\sigdb\Signature.cpp" />
     <ClCompile Include="core\techniques\BMH.cpp" />
-    <ClCompile Include="Core\tools\NDBtoDB Converter\NDBtoDb.cpp" />
+    <ClCompile Include="core\tools\ndbtodb converter\NDBtoDb.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -86,7 +86,7 @@
     <ClInclude Include="core\shared\sigdb\Database.h" />
     <ClInclude Include="core\shared\sigdb\Signature.h" />
     <ClInclude Include="core\techniques\Techniques.h" />
-    <ClInclude Include="Core\tools\NDBtoDB Converter\NDBtoDb.h" />
+    <ClInclude Include="core\tools\ndbtodb converter\NDBtoDb.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
