@@ -18,7 +18,7 @@ protected:
 public:
 	string VirusName;
 	string HexSignature;
-	char* AsciiSignature = new char();
+	char* AsciiSignature;
 	//constructors
 	Signature();
 	Signature(char* HexSignature);

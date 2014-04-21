@@ -13,6 +13,7 @@ using namespace std;
 
 Shared::SigDb::Signature::Signature()
 {
+
 }
 
 Shared::SigDb::Signature::Signature(char* HexSignature)
@@ -24,8 +25,9 @@ int Shared::SigDb::Signature::SigHextoASCII()
 {
 	if(this->HexSignature != "")
 	{
-	char* ASCII_Sig_Beg = this->AsciiSignature;
 	int len = this->HexSignature.length()/2;
+	this->AsciiSignature = new char[len];
+	char* ASCII_Sig_Beg = this->AsciiSignature;
 	const char *c = this->HexSignature.c_str();
 	unsigned int x;
 	 while(len > 0)

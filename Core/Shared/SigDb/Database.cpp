@@ -47,7 +47,7 @@ int Shared::SigDb::Database::init()
 		string x; getline(dbFile, x);
 		//Signature list filling
 		this->SignaturesNumber = atoi(this->SigNum.c_str());
-		this->SignaturesList.resize(this->SignaturesNumber);
+		this->SignaturesList = new Signature[this->SignaturesNumber];
 		for(int i=0; i<this->SignaturesNumber; i++)
 		{
 			getline(dbFile, (this->SignaturesList[i]).VirusName,':');
