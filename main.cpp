@@ -12,26 +12,26 @@ using namespace Shared::Common;
 using namespace Shared::SigDb;
 int main()
 {
-	/*
-	//trying BMH Scanning Algorithim
+/*
+//testing BMH Scanning Algorithim
 	cout << "-------------------" << endl<< "Searching 'This' in test.exe " <<endl << "-------------------" << endl;
 	File x("test.exe");
 	x.Process();
 	BMH y("This",4,x.Buffer,x.BufferSize);
 	int r = y.search();
 	cout<<"Found in offset : "<<r<<endl;
-	*/
+*/
 
 	
-	 //testing NDB database converter
+ //testing NDB database converter
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	cout << "Converting Main.ndb to db ..." << endl;
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
-	cout << "Converting is Done . . ." << endl;
+	cout << "Converting is Done ... !!" << endl;
 
 	
-	// testing database loading and initializing 
+// testing database loading and initializing
 	Database d("Databases\\test.db");
 	d.init();
 
@@ -39,7 +39,7 @@ int main()
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	cout << "Reading Signature Database from : " << d.Path << endl;
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
-
+/*
 	for (int i = 0; i < d.SignaturesNumber; i++)
 	{
 		cout << "Virus Name : " << d.SignaturesList[i].VirusName << endl;
@@ -47,7 +47,7 @@ int main()
 		cout << "ASCII Signature : " << d.SignaturesList[i].AsciiSignature << endl;
 		cout << "---------------------------------------------------------------------------" << endl;
 	}
-
-	cout << "Database Loading Done . . ." ; cin.ignore();
+*/
+	cout << "Database Loading Done ... !!" ; cin.ignore();
 	return 0;
 }
