@@ -1,4 +1,5 @@
 #include "NDBtoDb.h"
+#include <algorithm>
 
 using namespace std;
 

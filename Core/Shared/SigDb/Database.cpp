@@ -13,7 +13,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-
+#include <stdlib.h>
 using namespace std;
 
 Shared::SigDb::Database::Database()
@@ -55,10 +55,6 @@ int Shared::SigDb::Database::init()
 			this->SignaturesList[i].SigHextoASCII();
 			getline(dbFile, x);
 		}
-
-
-
-
 		return 0;
 }
 

@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
-
+#include <stdlib.h>
 using namespace std;
 
 Shared::SigDb::Signature::Signature()
@@ -30,7 +30,7 @@ int Shared::SigDb::Signature::SigHextoASCII()
 	unsigned int x;
 	 while(len > 0)
 	 {
-		sscanf_s(c, "%2X", &x);
+		sscanf(c, "%2X", &x);
 		*(this->AsciiSignature) = (unsigned char)x;
 		this->AsciiSignature++;
 	    c += 2;
