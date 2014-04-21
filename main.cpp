@@ -28,7 +28,7 @@ int main()
 	cout << "Converting Main.ndb to db ..." << endl;
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
-	cout << "Done !!" << endl;
+	cout << "Converting is Done . . ." << endl;
 
 	
 	// testing database loading and initializing 
@@ -48,6 +48,6 @@ int main()
 		cout << "---------------------------------------------------------------------------" << endl;
 	}
 
-	cout << "Done !!" ; cin.ignore();
+	cout << "Database Loading Done . . ." ; cin.ignore();
 	return 0;
 }
