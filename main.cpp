@@ -64,7 +64,7 @@ int main()
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	cout << "Reading Signature Database from : " << d.Path << endl;
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
-/*
+
 	for (int i = 0; i < d.SignaturesNumber; i++)
 	{
 		cout << "Virus Name : " << d.SignaturesList[i].VirusName << endl;
@@ -72,7 +72,7 @@ int main()
 		cout << "ASCII Signature : " << d.SignaturesList[i].AsciiSignature << endl;
 		cout << "---------------------------------------------------------------------------" << endl;
 	}
-*/
+
 	cout << "Database Loading Done ... !!" ; cin.ignore();
 >>>>>>> 1f930ae55d8650c119252bf39d58b7ad3417eea8
 	return 0;
