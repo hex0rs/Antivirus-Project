@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QFileDialog>
-#include <QMovie>
-#include <QSize>
+#include <QtWidgets/qfiledialog.h>
+#include <QtGui/qmovie.h>
+#include <QtCore/qsize.h>
 
 
 

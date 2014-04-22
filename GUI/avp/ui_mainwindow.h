@@ -9,16 +9,16 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
-#include <QtCore/QVariant>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QFrame>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QWidget>
+#include <QtCore/qvariant.h>
+#include <QtWidgets/qaction.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qbuttongroup.h>
+#include <QtWidgets/qframe.h>
+#include <QtWidgets/qheaderview.h>
+#include <QtWidgets/qlabel.h>
+#include <QtWidgets/qmainwindow.h>
+#include <QtWidgets/qpushbutton.h>
+#include <QtWidgets/qwidget.h>
 
 QT_BEGIN_NAMESPACE
 
