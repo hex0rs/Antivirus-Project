@@ -9,7 +9,7 @@
 #include "Database.h"
 #include "Signature.h"
 #include <iostream>
-#include <vector>
+#include <stdlib.h>
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -47,7 +47,7 @@ int Shared::SigDb::Database::init()
 		string x; getline(dbFile, x);
 		//Signature list filling
 		this->SignaturesNumber = atoi(this->SigNum.c_str());
-		this->SignaturesList.resize(this->SignaturesNumber);
+		this->SignaturesList=new Signature[SignaturesNumber];
 		for(int i=0; i<this->SignaturesNumber; i++)
 		{
 			getline(dbFile, (this->SignaturesList[i]).VirusName,':');
@@ -55,10 +55,6 @@ int Shared::SigDb::Database::init()
 			this->SignaturesList[i].SigHextoASCII();
 			getline(dbFile, x);
 		}
-
-
-
-
 		return 0;
 }
 
