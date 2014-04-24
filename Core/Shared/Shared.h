@@ -13,6 +13,7 @@ namespace Shared
 	namespace Common
 	{
 		class File;
+		class Quarantine;
 	}
 	namespace SigDb
 	{

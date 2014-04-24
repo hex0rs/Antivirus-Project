@@ -18,5 +18,7 @@ public:
 	File(char* FilePath);
 	void Process();
 	void Process(char* FilePath);
+	static char* openFile(string path ,streampos* size);
+	static string getFileName(string path);
 
 };

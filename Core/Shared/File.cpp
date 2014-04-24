@@ -8,7 +8,7 @@
 #include "File.h"
 #include <iostream>
 #include <fstream>
-
+#include <string>
 
 using namespace std;
 using namespace Shared;
@@ -44,5 +44,25 @@ void Shared::Common::File::Process(char* FilePath)
 	this->FilePath = FilePath;
 	this->Process();
 
+}
+char* Shared::Common::File::openFile(string path,streampos* size)
+{
+	return "";
+}
+string Shared::Common::File::getFileName(string path) {
+
+	string temp = "";
+	string reversed = "";
+	for (int i = path.length(); i > -1; i--) {
+		if (path[i] != '\\' && path[i] != '/') {
+			temp += path[i];
+		} else
+			break;
+	}
+
+	for (int i = temp.length() - 1; i > -1; i--)
+		reversed += temp[i];
+
+	return reversed;
 }
 
