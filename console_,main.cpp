@@ -51,7 +51,11 @@ int console_main()
 		cout << "ASCII Signature : " << d.SignaturesList[i].AsciiSignature << endl;
 		cout << "---------------------------------------------------------------------------" << endl;
 	}
-
 	cout << "Database Loading Done ... !!" ; cin.ignore();
+
+	//testing aho-corasic algorithim
+	cout << endl;
+	AhoCorasick test();
+
 	return 0;
 }

@@ -1,4 +1,7 @@
 // contains classes of different techniques used in scanning
+#ifndef TECHNIQUES_H
+#define TECHNIQUES_H
+
 #include <iostream>
 #ifndef MAX_ALPHABET
 #define MAX_ALPHABET 256
@@ -9,6 +12,7 @@ namespace Techniques {
 
 namespace Static {
 	class BMH;
+	class AhoCorasick;
 }
 
 namespace Dynamic {}
@@ -30,3 +34,4 @@ public:
 	int search(char* pattern, int pattern_size, char* text, int text_size);
 
 };
+#endif
