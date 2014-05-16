@@ -11,7 +11,7 @@ class Techniques::Static::AhoCorasick
 
    public:
    AhoCorasick(void);
-   AhoCorasick(char* DB_Path,char* text,unsigned int text_size);
+   AhoCorasick(char* text,unsigned int text_size);
    void CreateTrie(void);
    int Search(char* text,unsigned int text_size);
 };
