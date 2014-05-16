@@ -11,9 +11,9 @@ Techniques::Static::AhoCorasick::AhoCorasick(void)
   Search_Result = -1;
 }
 
-Techniques::Static::AhoCorasick::AhoCorasick(char* DB_Path,char* text,unsigned int text_size)
+Techniques::Static::AhoCorasick::AhoCorasick(char* text,unsigned int text_size)
 {
-    CreateTrie(DB_Path);
+    CreateTrie();
     Search_Result = Search(text,text_size);
 }
 
