@@ -1,7 +1,5 @@
 #include "Aho-Corasick.h"
 #include "trie.h"
-#include "Core/Shared/SigDb/Database.h"
-#include "Core\tools\NDBtoDB Converter\NDBtoDb.h"
 #include <fstream>
 
 Node* current;
@@ -29,7 +27,7 @@ d.init();
 
 for(int i=0;i<d.SignaturesNumber;i++)
 {
- add( d.SignaturesList[i].HexSignature, d.SignaturesList[i].VirusName,"Not filled yet.",1);
+  Add( d.SignaturesList[i].HexSignature, d.SignaturesList[i].VirusName,"Not filled yet.",1);
 }
 
 Build_Fail_Edges();

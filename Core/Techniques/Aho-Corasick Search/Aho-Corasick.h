@@ -1,8 +1,11 @@
-#ifndef AHO-CORASICK_H_INCLUDED
-#define AHO-CORASICK_H_INCLUDED
 
+#ifndef Aho-Corasick_H
+#define Aho-Corasick_H
 #include <iostream>
 #include "../Techniques.h"
+#include "../../Shared/SigDb/Database.h"
+#include "../../tools/NDBtoDB Converter/NDBtoDb.h"
+
 
 class Techniques::Static::AhoCorasick
 {
@@ -17,4 +20,4 @@ class Techniques::Static::AhoCorasick
 };
 
 
-#endif // AHO-CORASICK_H_INCLUDED
+#endif

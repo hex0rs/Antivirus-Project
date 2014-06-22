@@ -8,6 +8,7 @@
 .metadata
 bin/
 tmp/
+Debug/
 *.tmp
 *.bak
 *.swp
@@ -217,3 +218,4 @@ pip-log.txt
 =======
 /Debug
 >>>>>>> 1f930ae55d8650c119252bf39d58b7ad3417eea8
+/Default

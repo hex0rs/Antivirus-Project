@@ -13,7 +13,7 @@ using namespace Shared::SigDb;
 
 
 
-int console_main()
+int main()
 {
 /*
 //testing BMH Scanning Algorithim
@@ -53,7 +53,7 @@ int console_main()
 	}
 	cout << "Database Loading Done ... !!" ; cin.ignore();
 
-	//testing aho-corasic algorithim
+	//testing aho-corasick algorithim
 	cout << endl;
 	AhoCorasick test();
 
