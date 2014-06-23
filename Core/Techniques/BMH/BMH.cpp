@@ -4,7 +4,7 @@
  *  Created on: Apr 13, 2014
  *      Author: Ahmed
  */
-#include "Techniques.h"
+#include "BMH.h"
 
 
 using namespace std;
