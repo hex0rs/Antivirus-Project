@@ -1,0 +1,26 @@
+--version	-v		  Print Current Arma-Av version
+--check		-cv		  Check Last Arma-Av version
+--help		-h		  Print Help Message
+**Scanning**
+--scan		-s		  Scanning Management
+--directory	-d [path]	  Specify the directory path you want to scan [used with -s]
+--file		-f [path]	  Specify the file path you want to scan  [used with -s]
+--method	-m [bmh/ac/both]  Specify the scanning method / algorithm [used with -s -f/-d]
+					-> bmh	: Boyer-Moore Algorithm
+					-> ac	: Aho-Chorasick Algorithm [default algotithm used]
+					-> both	: Using both bmh & ac		
+**Quarantine**
+--quarantine	-q		  Quarantine management 	
+--list		-l		  List All Files in Quarantine [used with -q]	
+--add		-a [path]	  Add file to Quarantine
+--delete	-d [quarantineID] Delete file from quarantine by quarantineID 	[used with -q]
+--restore	-r [quarantineID] Restore file from quarantine by quarantineID	[used with -q]
+--info		-i		  List Quarantine info				[used with -q]
+
+**Updating**
+--update	-u	 	  Update management
+--core		-c		  Update core from github repository		 [used with -u]
+--database	-d		  Update signatures database locally or remotely [used with -u]
+--local		-l [db path]	  Update database locally from db / ndb file [used with -u -d]
+--remotely	-r		  Update database remotely from arma server  [used with -u -d]
+ 
