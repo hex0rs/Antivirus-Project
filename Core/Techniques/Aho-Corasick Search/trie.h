@@ -14,6 +14,26 @@ struct Node{
     std::string name;
     Node *Fail_Node;
     Node *Children[HEX_SIZE];
+    
+    void operator= (Node a) //Providing = operator if needed to copy a Node to another
+    {
+        this->ch = a.ch;
+        this->danger_level = a.danger_level;
+        this->Fail_Node = a.Fail_Node;
+        this->ID = a.ID;
+        this->IsLeaf = a.IsLeaf;
+        this->name = a.name;
+        this->type = a.type;
+
+        for(int i=0;i<HEX_SIZE;i++)
+        {
+            if(a.Children[i] != NULL)
+            {
+                this->Children[i] = a.Children[i];
+            }
+        }
+    }
+    
 };
 
 Node* FindHex(Node*,Node*);
