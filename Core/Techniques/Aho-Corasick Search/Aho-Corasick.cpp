@@ -17,12 +17,16 @@ Techniques::Static::AhoCorasick::AhoCorasick(char* text,unsigned int text_size)
     Search_Result = Search(text,text_size);
 }
 
-void Techniques::Static::AhoCorasick::CreateTrie(void)
+int Techniques::Static::AhoCorasick::CreateTrie(void)
 {
 
 NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
 
-Shared::SigDb::Database d("Databases\\test.db");
+if(Shared::SigDb::Database d("Databases\\test.db"))
+{
+        std::cerr << "Failed to build database." << std::endl;
+        return 1;  
+}
 d.init();
 
 
@@ -33,7 +37,7 @@ for(int i=0;i<d.SignaturesNumber;i++)
 }
 
 Build_Fail_Edges();
-
+return 0;
 }
 
 int Techniques::Static::AhoCorasick::Search(char* text,unsigned int text_size)
