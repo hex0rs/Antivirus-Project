@@ -11,11 +11,14 @@ class Techniques::Static::AhoCorasick
 {
    private:
    int Search_Result;
-
+   void CreateTrie(void);
+   int SavingTrie(void); //To Speed up the process
+   int LoadingTrie(void);
+   
    public:
    AhoCorasick(void);
    AhoCorasick(char* text,unsigned int text_size);
-   void CreateTrie(void);
+   int LoadDB(void);
    int Search(char* text,unsigned int text_size);
 };
 
