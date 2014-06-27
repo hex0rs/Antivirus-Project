@@ -7,9 +7,10 @@ unsigned int Add_calls=0; //used as an ID to Node
 Node* Init()
 {
     Root = new Node();
+    Root->ch = 'R';
     Root->Fail_Node = Root;
     Root->IsLeaf = false;
-
+    Root->ID=0;
     return Root;
 }
 
