@@ -8,6 +8,7 @@
 struct Node{
     bool IsLeaf;
     char ch;
+    unsigned int ID; //used to identify nodes in saving and loading DB
     unsigned int danger_level;
     std::string type;
     std::string name;
