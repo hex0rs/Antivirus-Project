@@ -37,9 +37,9 @@ Build_Fail_Edges();
 int Techniques::Static::AhoCorasick::Search(char* text,unsigned int text_size)
 {
 
-    for(unsigned int a=0;a<text_size;a++)
+    for(unsigned int a=0;a<=text_size;a++)
     {
-        current = Go_To(current,text[a]);
+        current = Go_To(current,toupper(text[a]) );
         if(true == current->IsLeaf)
         {
             std::cout<<"Virus is found!!"<<std::endl;
