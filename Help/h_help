@@ -1,0 +1,8 @@
+
+--help		-h [help opt]	  Print Help Message
+				  help options -->
+				       all        : print full manual of arma
+				       info       : print help about how to get status of arma
+				       scan       : print help about how to use arma in scanning
+				       quarantine : print help about how to deal with quarantine
+				       update     : print help about how to update arma

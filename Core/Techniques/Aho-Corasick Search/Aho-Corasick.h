@@ -1,6 +1,13 @@
+/*
+ * Aho-Corasick.h
+ *
+ *  Created on: Jun 25, 2014
+ *      Author: Ahmed Fouda
+ */
 
-#ifndef Aho-Corasick_H
-#define Aho-Corasick_H
+#ifndef AHO_CORASICK_H_
+#define AHO_CORASICK_H_
+
 #include <iostream>
 #include "../Techniques.h"
 #include "../../Shared/SigDb/Database.h"
@@ -23,4 +30,5 @@ class Techniques::Static::AhoCorasick
 };
 
 
-#endif
+
+#endif /* AHO_CORASICK_H_ */

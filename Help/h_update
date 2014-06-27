@@ -1,0 +1,8 @@
+
+**Updating**
+--update	-u	 	  Update management
+--core		-c		  Update core from github repository		 [used with -u]
+--database	-d		  Update signatures database locally or remotely [used with -u]
+--local		-l [db path]	  Update database locally from db / ndb file [used with -u -d]
+--remotely	-r		  Update database remotely from arma server  [used with -u -d]
+ 

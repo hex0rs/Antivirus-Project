@@ -10,12 +10,16 @@
 
 #include <iostream>
 #include <fstream>
-#include <string.h>
+#include <string>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-bool cmp(char* arg, char* opt);
 
-void printHelp();
+bool cmp(char* arg, char* opt1, char* opt2);
+
+void printBanner();
+void printHelp(char* opt);
 void printVersion();
 void printLatestVersion();
 
@@ -26,24 +30,27 @@ public:
 	char* virusName;
 
 };
+
 class iface_scan
 {
+
 public:
-	bool isFile = false;
-	bool isDirectory = false;
-	int scanMethod;
-	scan_result result;
-	void scan();
+	char* scanMethod;
+	int ScanMethodNum;
+	void setScanMethod();
+	char* path;
+	void scan_file();
+	void scan_directory();
 
 
 };
 class iface_quarantine
 {
 public:
-	void list();
-	void add(char* path);
-	void restore(int qID);
-	void remove(int qID);
+	static void list();
+	static void add(char* path);
+	static void restore(int qID);
+	static void remove(int qID);
 };
 class iface_update
 {
@@ -57,7 +64,7 @@ class iface_state
 {
 public:
 	int GetCurrentVersion();
-	int GetLatestVeersion();
+	int GetLatestVersion();
 	int GetDatabaseCurrentVersion();
 	int GetDatabaseLatestVersion();
 	int GetQuarantineState();
