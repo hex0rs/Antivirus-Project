@@ -2,6 +2,8 @@
 #include <queue>
 
 Node* Root;
+unsigned int Add_calls=0; //used as an ID to Node
+
 Node* Init()
 {
     Root = new Node();
@@ -27,6 +29,7 @@ void Add(std::string signature,std::string name,std::string type,unsigned int da
         if(NULL == current->Children[casted_digit]){
            current->Children[casted_digit] = new Node();
            current->Children[casted_digit]->ch = signature[a];
+           current->Children[casted_digit]->ID = Add_calls++;
         }
 
         current = current->Children[casted_digit];
@@ -102,7 +105,7 @@ Node* Go_To(Node* node,char ch)
       if(NULL == node->Children[casted_digit])
         {
             if(node->Fail_Node->ch != ch && NULL == node->Fail_Node->Children[casted_digit])
-            return node;
+            return node->Fail_Node->Fail_Node;
             else
             Go_To(node->Fail_Node,ch);
         }
