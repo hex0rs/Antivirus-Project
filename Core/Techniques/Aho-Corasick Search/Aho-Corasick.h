@@ -11,7 +11,7 @@ class Techniques::Static::AhoCorasick
 {
    private:
    int Search_Result;
-   void CreateTrie(void);
+   int CreateTrie(void);
    int SavingTrie(void); //To Speed up the process
    int LoadingTrie(void);
    
