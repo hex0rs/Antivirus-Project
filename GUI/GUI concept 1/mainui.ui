@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainUi</class>
+ <widget class="QMainWindow" name="MainUi">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>armaAV</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="img.qrc">
+    <normaloff>:/app/img/img/22.png</normaloff>
+    <disabledoff>:/app/img/img/22.white.png</disabledoff>:/app/img/img/22.png</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="widget">
+   <property name="styleSheet">
+    <string notr="true">#widget
+{
+	border: 2px solid #559bf5;
+	background: white;
+}</string>
+   </property>
+   <widget class="QWidget" name="tabWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>98</y>
+      <width>825</width>
+      <height>485</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="min">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>2</y>
+      <width>34</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>34</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Minimize</string>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-image: url(:/app/img/img/skin/minimize.png); border: none; selection-color: none;
+selection-background-color: none;}
+QPushButton:hover {background-image: url(:/app/img/img/skin/minimize.png);border: none;}
+
+
+QPushButton:pressed{background-image: url(:/app/img/img/skin/minimize-hover.png); border: none;}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>35</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>688</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="hLayout">
+     <property name="spacing">
+      <number>17</number>
+     </property>
+     <property name="leftMargin">
+      <number>5</number>
+     </property>
+     <property name="rightMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="statePushButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>19</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { color: #1aa2f1; }
+
+ QPushButton:pressed { color : darkgray; }
+
+ QPushButton:flat {  border: none;  }
+
+QPushButton:hover { color: black; }
+
+/* QPushButton:default { border-color: #1aa2f1; }
+
+QLabel { color : #1aa2f1; }
+QLabel:hover{ color: black ;}
+QLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>state</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="scanPushButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>19</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+
+ QPushButton { color : darkgray; }
+
+ QPushButton:flat {  border: none;  }
+
+QPushButton:hover { color: black; }
+
+/* QPushButton:default { border-color: #1aa2f1; }
+
+QLabel { color : #1aa2f1; }
+QLabel:hover{ color: black ;}
+QLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>scan</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="quarantinePushButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>19</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+
+ QPushButton { color : darkgray; }
+
+ QPushButton:flat {  border: none;  }
+
+QPushButton:hover { color: black; }
+
+/* QPushButton:default { border-color: #1aa2f1; }
+
+QLabel { color : #1aa2f1; }
+QLabel:hover{ color: black ;}
+QLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>quarantine</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="historyPushButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>19</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+
+ QPushButton { color : darkgray; }
+
+ QPushButton:flat {  border: none;  }
+
+QPushButton:hover { color: black; }
+
+/* QPushButton:default { border-color: #1aa2f1; }
+
+QLabel { color : #1aa2f1; }
+QLabel:hover{ color: black ;}
+QLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>history</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="updatePushButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>19</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+
+ QPushButton { color : darkgray; }
+
+ QPushButton:flat {  border: none;  }
+
+QPushButton:hover { color: black; }
+
+/* QPushButton:default { border-color: #1aa2f1; }
+
+QLabel { color : #1aa2f1; }
+QLabel:hover{ color: black ;}
+QLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>update</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="settingPushButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>19</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+
+ QPushButton { color : darkgray; }
+
+ QPushButton:flat {  border: none;  }
+
+QPushButton:hover { color: black; }
+
+/* QPushButton:default { border-color: #1aa2f1; }
+
+QLabel { color : #1aa2f1; }
+QLabel:hover{ color: black ;}
+QLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>setting</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="aboutPushButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>19</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+
+ QPushButton { color : darkgray; }
+
+ QPushButton:flat {  border: none;  }
+
+QPushButton:hover { color: black; }
+
+/* QPushButton:default { border-color: #1aa2f1; }
+
+QLabel { color : #1aa2f1; }
+QLabel:hover{ color: black ;}
+QLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>about</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="close">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>2</y>
+      <width>34</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>34</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Close</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton { background-image: url(:/app/img/img/skin/close.png);border: none;}
+QPushButton:hover {background-image: url(:/app/img/img/skin/close.png); border: none;}
+QPushButton:pressed{background-image: url(:/app/img/img/skin/close-hover.png); border: none;}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>35</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="img.qrc"/>
+ </resources>
+ <connections/>
+</ui>

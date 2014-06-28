@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Advanced</class>
+ <widget class="QWidget" name="Advanced">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>370</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="tabAdvanced" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>550</width>
+     <height>370</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#tabAdvanced{	border: 0.5px solid #559bf5;	background: white;}</string>
+   </property>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>150</y>
+      <width>242</width>
+      <height>117</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="1" column="0">
+      <widget class="QTextBrowser" name="textBrowser_4">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTextBrowser { border: none; color: black; font: 75 12pt &quot;Segoe UI&quot;;}
+QTextBrowser:hove{ border: none; color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}</string>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Allow all users of this PC to see all detected items on the History tab.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="checkBox_4">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox:hover { color: #1aa2f1; font: 75 12pt &quot;Segoe UI&quot;;}
+QCheckBox { color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}
+QCheckBox:flat {  border: none; font: 75 12pt &quot;Segoe UI&quot;; }
+QCheckBox:pressed { color: black; font: 75 12pt &quot;Segoe UI&quot;;}</string>
+       </property>
+       <property name="text">
+        <string>allow users to view full history</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>242</width>
+      <height>113</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_1">
+     <item row="1" column="0">
+      <widget class="QTextBrowser" name="textBrowser">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTextBrowser { border: none; color: black; font: 75 12pt &quot;Segoe UI&quot;;}
+QTextBrowser:hove{ border: none; color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}
+
+</string>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Include any archive files, such as .zip, .rar or .cab fies.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="checkBox">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox:hover { color: #1aa2f1; font: 75 12pt &quot;Segoe UI&quot;;}
+QCheckBox { color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}
+QCheckBox:flat {  border: none; font: 75 12pt &quot;Segoe UI&quot;; }
+QCheckBox:pressed { color: black; font: 75 12pt &quot;Segoe UI&quot;;}</string>
+       </property>
+       <property name="text">
+        <string>scan archive files</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>150</y>
+      <width>242</width>
+      <height>144</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0" colspan="2">
+      <widget class="QCheckBox" name="checkBox_3">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox:hover { color: #1aa2f1; font: 75 12pt &quot;Segoe UI&quot;;}
+QCheckBox {  color : darkgray; font: 75 12pt &quot;Segoe UI&quot;; border-bottom-color: rgb(26, 162, 241);  border-bottom: 1px solid red;}
+
+QCheckBox:flat {  border: none; font: 75 12pt &quot;Segoe UI&quot;; }
+QCheckBox:pressed { color: black; font: 75 12pt &quot;Segoe UI&quot;;}</string>
+       </property>
+       <property name="text">
+        <string>remove quarantined files</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="comboBox">
+       <property name="maximumSize">
+        <size>
+         <width>120</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox:hover { color: #1aa2f1; font: 75 12pt &quot;Segoe UI&quot;;}
+QComboBox { color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}
+QComboBox:flat {  border: none; font: 75 12pt &quot;Segoe UI&quot;; }
+QComboBox:pressed { color: black; font: 75 12pt &quot;Segoe UI&quot;;}</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>1 day</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2 days</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3 days</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4 days</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 week</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2 weeks</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 month</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3 months</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="0" rowspan="2" colspan="2">
+      <widget class="QTextBrowser" name="textBrowser_3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTextBrowser { border: none; color: black; font: 75 12pt &quot;Segoe UI&quot;;}
+QTextBrowser:hove{ border: none; color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}
+
+</string>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Quarantied files remain disabled untile you allow them or remove them. Remove this files after :&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>20</y>
+      <width>242</width>
+      <height>113</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="0">
+      <widget class="QTextBrowser" name="textBrowser_2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTextBrowser { border: none; color: black; font: 75 12pt &quot;Segoe UI&quot;;}
+QTextBrowser:hove{ border: none; color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}
+
+</string>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Include removable drive, such as USB flash drive, when running a full scan.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="checkBox_2">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QCheckBox:hover { color: #1aa2f1; font: 75 12pt &quot;Segoe UI&quot;;}
+QCheckBox { color : darkgray; font: 75 12pt &quot;Segoe UI&quot;;}
+QCheckBox:flat {  border: none; font: 75 12pt &quot;Segoe UI&quot;; }
+QCheckBox:pressed { color: black; font: 75 12pt &quot;Segoe UI&quot;;}</string>
+       </property>
+       <property name="text">
+        <string>scan removable drive</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Setting</class>
+ <widget class="QWidget" name="Setting">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>825</width>
+    <height>485</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="tabSetting" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>825</width>
+     <height>485</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#tabSetting{border: 0.5px solid #559bf5;	background: white;}</string>
+   </property>
+   <widget class="QWidget" name="appSetting" native="true">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>40</y>
+      <width>550</width>
+      <height>370</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#widget{ border: 0.5px solid #559bf5;background: white;}</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>230</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="realTimeButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>real time protection</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="advancedButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>advanced</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>excluded file type</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>excluded file location</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_7">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>excluded processes</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>scheduling</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_9">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>network connection</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButtonOK">
+    <property name="geometry">
+     <rect>
+      <x>551</x>
+      <y>431</y>
+      <width>33</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonApplay">
+    <property name="geometry">
+     <rect>
+      <x>614</x>
+      <y>431</y>
+      <width>71</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+    </property>
+    <property name="text">
+     <string>Apply</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonCancel">
+    <property name="geometry">
+     <rect>
+      <x>715</x>
+      <y>431</y>
+      <width>69</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:hover { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:pressed { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
