@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{706C2D0C-E0A6-49C5-ACFC-ABCB3C22AB96}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <ProjectName>arma-av</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

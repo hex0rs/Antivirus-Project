@@ -106,7 +106,7 @@ void printBanner()
 
 )";
 	srand(time(NULL));
-	int choosed_banner = rand()%4;
+	int choosed_banner = rand()%10;
 	cout << banners[choosed_banner] << endl;
 }
 void printFile(char* path)
@@ -217,7 +217,7 @@ void iface_quarantine::remove(int qID)
 }
 
 //iface_update
-int iface_update::UpdateCore()
+int iface_update::UpdateVersion()
 {
 	return 1;
 }

@@ -144,9 +144,7 @@ else if (cmp(argv[1],"s","scan") && argc == 6)
 	}
 	else
 	{
-		cout << "[-]Scanning method must be used with -m / --method switch"<<endl;
-		cout << "[-]Supported methods : [bmh / ac / both]"<<endl;
-		cout << "[-]A file or directory must be specified with -f/--file or -d/--directory switches";
+		cout << "[-]Undefined Scanning switches !!"<<endl;
 		printHelp("scan");
 	}
 }
@@ -171,20 +169,45 @@ else if (cmp(argv[1], "q", "quarantine") && (argc == 3 || argc == 4 ))
 	}
 	else
 	{
-		cout << "[-]Undefined Quarantine switche !! " << endl;
+		cout << "[-]Undefined Quarantine switches !! " << endl;
 		printHelp("quarantine");
 	}
 }
-else if (cmp(argv[1],"u","update"))
+else if (cmp(argv[1],"u","update") && (argc==3 || argc==4 || argc ==5))
 {
+	iface_update u;
+	if (cmp(argv[2], "v", "version"))
+	{
+		u.UpdateVersion();
+	}
+	else if (cmp(argv[2], "d", "database"))
+	{
+		if (cmp(argv[3], "r", "remotely"))
+		{
+			u.UpdateDatabaseRemotely();
+		}
+		else if (cmp(argv[3], "l", "locally"))
+		{
+			u.UpdateDatabaseLocally(argv[4]);
+		}
+		else
+		{
+			cout << "[-]Undefined Database Updating switches !!" << endl;
+			cout << "[-]Either use -r to update from arma server " << endl;
+			cout << "[-]OR -l [db path] to update from local db file" << endl;
+		}
+	}
+	else
+	{
+		cout << "[-]Undefined Update switches !!" << endl;
+		printHelp("update");
+	}
 }
-else if (cmp(argv[1],"i","info"))
-{
-}
+
 else
 {
-	cout << "[-]Error Parsing passed parameters .. "<<endl;
-	cout << "[-]Check again considering parameters proper order .."<<endl;
+	cout << "[-]Error Parsing the given switches .. "<<endl;
+	cout << "[-]Check again considering switches in proper order .."<<endl;
 	printHelp("xx");
 }
 

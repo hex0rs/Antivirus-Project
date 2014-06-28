@@ -1,0 +1,13 @@
+client -->
+- aho client 
+- database acdb / bmdb
+- quarantine / qfile
+- threading (open threads)
+- connections (dwn file)
+- memory mapped files
+- interface.cpp
+server -->
+- version file 
+- load bmdb file
+- create acdb file using [aho server]
+- 

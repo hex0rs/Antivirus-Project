@@ -22,12 +22,12 @@ int Techniques::Static::AhoCorasick::CreateTrie(void)
 
 NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
 
-if(Shared::SigDb::Database d("Databases\\test.db"))
+Shared::SigDb::Database d("Databases\\test.db");
+if (d.init()==-1)
 {
-        std::cerr << "Failed to build database." << std::endl;
-        return 1;  
+	cerr<<"[-]Database loading error !!";
+	return 1;
 }
-d.init();
 
 
 

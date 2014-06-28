@@ -55,7 +55,7 @@ public:
 class iface_update
 {
 public:
-	int UpdateCore();
+	int UpdateVersion();
 	int UpdateDatabaseRemotely();
 	int UpdateDatabaseLocally(char* db);
 
