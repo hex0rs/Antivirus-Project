@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/app/img">
+        <file>img/22.gaia.png</file>
+        <file>img/22.png</file>
+        <file>img/22.white.png</file>
+        <file>img/skin/close-hover.png</file>
+        <file>img/skin/close.png</file>
+        <file>img/skin/fullscreen-hover.png</file>
+        <file>img/skin/fullscreen.png</file>
+        <file>img/skin/grid_noise.png</file>
+        <file>img/skin/maximize-hover.png</file>
+        <file>img/skin/maximize.png</file>
+        <file>img/skin/menu-hover.png</file>
+        <file>img/skin/menu.png</file>
+        <file>img/skin/minimize-hover.png</file>
+        <file>img/skin/minimize.png</file>
+        <file>img/skin/resizeSE.png</file>
+        <file>img/skin/restore-hover.png</file>
+        <file>img/skin/restore.png</file>
+        <file>img/skin/undecorator.css</file>
+        <file>img/skin/undecorator.properties</file>
+        <file>img/skin/undecoratorUtilityStage.css</file>
+        <file>img/skin/unfullscreen-hover.png</file>
+        <file>img/skin/unfullscreen.png</file>
+    </qresource>
+</RCC>

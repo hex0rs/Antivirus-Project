@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Scan</class>
+ <widget class="QWidget" name="Scan">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>825</width>
+    <height>485</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="tabScan" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>825</width>
+     <height>485</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#tabScan{border: 0.5px solid #559bf5;	background: white;}</string>
+   </property>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>380</y>
+      <width>114</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:pressed { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:hover { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+    </property>
+    <property name="text">
+     <string>pauss scan</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QListView" name="catchedVirus">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>150</y>
+      <width>271</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListView" name="catchedFiles">
+    <property name="geometry">
+     <rect>
+      <x>495</x>
+      <y>150</y>
+      <width>281</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="fileName">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>50</y>
+      <width>561</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>%file name</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>380</y>
+      <width>156</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:pressed { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:hover { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+    </property>
+    <property name="text">
+     <string>clear all at end</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="filePath">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>80</y>
+      <width>561</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>% file path</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>380</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:pressed { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:hover { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+    </property>
+    <property name="text">
+     <string>stop scan</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>120</y>
+      <width>581</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>124</width>
+      <height>224</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0">
+     <property name="spacing">
+      <number>30</number>
+     </property>
+     <property name="leftMargin">
+      <number>2</number>
+     </property>
+     <property name="rightMargin">
+      <number>2</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:hover { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>scan file</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:hover { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>scan folder</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:hover { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>scan drive</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="styleSheet">
+        <string notr="true">QPushButton:pressed { color: #1aa2f1; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton { color : darkgray; font: 75 18pt &quot;Segoe UI&quot;;}
+QPushButton:flat {  border: none; font: 75 18pt &quot;Segoe UI&quot;; }
+QPushButton:hover { color: black; font: 75 18pt &quot;Segoe UI&quot;;}
+
+/* QPushButton:default { border-color: #1aa2f1; }\n\nQLabel { color : #1aa2f1; }\nQLabel:hover{ color: black ;}\nQLabe:pressedl { color : darkgray; }*/</string>
+       </property>
+       <property name="text">
+        <string>scan system</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>30</y>
+      <width>20</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: #1aa2f1;</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
