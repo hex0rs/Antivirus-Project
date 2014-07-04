@@ -3,6 +3,8 @@
 --quarantine	-q		  Quarantine management 	
 --list		-l		  List All Files in Quarantine [used with -q]	
 --add		-a [path]	  Add file to Quarantine
---encrypt	-e		  Encrypt the file while adding to quarantine [used with -a]
+--found-virus	-v [Name]	  Specify found virus name [optional] [used with -q -a]
+--encrypt	-e		  Encrypt the file while adding to quarantine [used with -q -a]
+--key		-k [key]	  Key to encrypt file [optional default is 1] [used with -q -a -e]
 --delete	-d [quarantineID] Delete file from quarantine by quarantineID 	[used with -q]
 --restore	-r [quarantineID] Restore file from quarantine by quarantineID	[used with -q] 

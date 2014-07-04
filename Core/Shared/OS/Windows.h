@@ -48,6 +48,10 @@ namespace OS
 	{
 		SetFileAttributesA(path, FILE_ATTRIBUTE_HIDDEN);
 	}
+	void deleteFile(const char* path)
+	{
+		DeleteFileA(path);
+	}
 }
 
 #endif /* OS_H_ */

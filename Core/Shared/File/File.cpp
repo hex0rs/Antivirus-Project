@@ -9,7 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include <stdio.h>
 using namespace std;
 using namespace Shared;
 
@@ -82,4 +82,42 @@ string Shared::Common::File::getLastLine(fstream* file)
 	}
 	getline(*file, lastline);
 	return lastline;
+}
+int Shared::Common::File::encryptFile(char* path,int key)
+{
+	FILE* f;
+	fopen_s(&f, path, "rb+");
+	if (f == NULL)
+		return -1;
+	fseek(f, 0, SEEK_END);
+	long size = ftell(f); char c = 'a';
+	rewind(f);
+	for (long i = 0; i < size; i++)
+	{
+		fseek(f, i, SEEK_SET);
+		c = fgetc(f); c+=key;
+		fseek(f, i, SEEK_SET);
+		fputc(c, f);
+	}
+	fclose(f);
+	return 1;
+}
+int Shared::Common::File::decryptFile(char* path,int key)
+{
+	FILE* f;
+	fopen_s(&f, path, "rb+");
+	if (f == NULL)
+		return -1;
+	fseek(f, 0, SEEK_END);
+	long size = ftell(f); char c = 'a';
+	rewind(f);
+	for (long i = 0; i < size; i++)
+	{
+		fseek(f, i, SEEK_SET);
+		c = fgetc(f); c-=key;
+		fseek(f, i, SEEK_SET);
+		fputc(c, f);
+	}
+	fclose(f);
+	return 1;
 }

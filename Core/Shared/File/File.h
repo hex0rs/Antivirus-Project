@@ -24,7 +24,7 @@ public:
 	static char* openFile(string path ,streampos* size);
 	static string getFileName(string path);
 	static string getLastLine(fstream* file);
-	static int encryptFile(char* path);
-
+	static int encryptFile(char* path, int key);
+	static int decryptFile(char* path, int key);
 };
 #endif

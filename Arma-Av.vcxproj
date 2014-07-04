@@ -86,6 +86,7 @@
   <ItemGroup>
     <ClInclude Include="core\interface\Interface.h" />
     <ClInclude Include="Core\Shared\File\File.h" />
+    <ClInclude Include="Core\Shared\Misc\threading.h" />
     <ClInclude Include="Core\Shared\OS\Linux.h" />
     <ClInclude Include="Core\Shared\OS\Windows.h" />
     <ClInclude Include="core\shared\quarantine\Quarantine.h" />
