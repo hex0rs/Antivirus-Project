@@ -1,6 +1,6 @@
 #include "Core/Techniques/Techniques.h"
 #include "Core/Shared/Shared.h"
-#include "Core/Shared/File.h"
+#include "Core/Shared/File/File.h"
 #include "Core/Shared/SigDb/Database.h"
 #include "Core\tools\NDBtoDB Converter\NDBtoDb.h"
 #include "Core/Interface/Interface.h"
@@ -144,7 +144,7 @@ else if (cmp(argv[1],"s","scan") && argc == 6)
 	}
 	else
 	{
-		cout << "[-]Undefined Scanning switches !!"<<endl;
+		cout << "[-] Undefined Scanning switches !!"<<endl;
 		printHelp("scan");
 	}
 }
@@ -169,7 +169,7 @@ else if (cmp(argv[1], "q", "quarantine") && (argc == 3 || argc == 4 ))
 	}
 	else
 	{
-		cout << "[-]Undefined Quarantine switches !! " << endl;
+		cout << "[-] Undefined Quarantine switches !! " << endl;
 		printHelp("quarantine");
 	}
 }
@@ -192,14 +192,14 @@ else if (cmp(argv[1],"u","update") && (argc==3 || argc==4 || argc ==5))
 		}
 		else
 		{
-			cout << "[-]Undefined Database Updating switches !!" << endl;
-			cout << "[-]Either use -r to update from arma server " << endl;
-			cout << "[-]OR -l [db path] to update from local db file" << endl;
+			cout << "[-] Undefined Database Updating switches !!" << endl;
+			cout << "[-] Either use -r to update from arma server " << endl;
+			cout << "[-] OR -l [db path] to update from local db file" << endl;
 		}
 	}
 	else
 	{
-		cout << "[-]Undefined Update switches !!" << endl;
+		cout << "[-] Undefined Update switches !!" << endl;
 		printHelp("update");
 	}
 }

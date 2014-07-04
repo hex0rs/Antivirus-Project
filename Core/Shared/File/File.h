@@ -4,9 +4,12 @@
  *  Created on: Apr 15, 2014
  *      Author: Ahmed
  */
-#include "Shared.h"
+#ifndef FILE_H
+#define FILE_H
+#include "../Shared.h"
 #include <fstream>
-class Shared::Common::File{
+class Shared::Common::File
+{
 protected:
 
 public:
@@ -20,5 +23,8 @@ public:
 	void Process(char* FilePath);
 	static char* openFile(string path ,streampos* size);
 	static string getFileName(string path);
+	static string getLastLine(fstream* file);
+	static int encryptFile(char* path);
 
 };
+#endif

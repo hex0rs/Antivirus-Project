@@ -22,5 +22,14 @@
         <file>img/skin/undecoratorUtilityStage.css</file>
         <file>img/skin/unfullscreen-hover.png</file>
         <file>img/skin/unfullscreen.png</file>
+        <file>img/arma logo.png</file>
+        <file>img/cir.jpg</file>
+        <file>img/arma logo2.jpg</file>
+        <file>img/arma logo3.png</file>
+        <file>img/logo.png</file>
+        <file>img/arrow-in-circle.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>img/main-header.png</file>
     </qresource>
 </RCC>

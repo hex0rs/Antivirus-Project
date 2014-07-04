@@ -9,7 +9,10 @@
 #define OS_H_
 #include <string>
 #include<iostream>
-namespace OS{
+#include "../Shared.h"
+
+namespace OS
+{
 
 //	void closeProcess(std::string executablePath){
 //		std::cout<<"Linux";

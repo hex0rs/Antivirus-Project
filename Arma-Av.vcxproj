@@ -73,7 +73,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\interface\Interface.cpp" />
-    <ClCompile Include="core\shared\File.cpp" />
+    <ClCompile Include="Core\Shared\File\File.cpp" />
     <ClCompile Include="core\shared\quarantine\Quarantine.cpp" />
     <ClCompile Include="core\shared\sigdb\Database.cpp" />
     <ClCompile Include="core\shared\sigdb\Signature.cpp" />
@@ -85,9 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\interface\Interface.h" />
-    <ClInclude Include="core\shared\File.h" />
-    <ClInclude Include="core\shared\OSLinux.h" />
-    <ClInclude Include="core\shared\OSWindows.h" />
+    <ClInclude Include="Core\Shared\File\File.h" />
+    <ClInclude Include="Core\Shared\OS\Linux.h" />
+    <ClInclude Include="Core\Shared\OS\Windows.h" />
     <ClInclude Include="core\shared\quarantine\Quarantine.h" />
     <ClInclude Include="core\shared\Shared.h" />
     <ClInclude Include="core\shared\sigdb\Database.h" />

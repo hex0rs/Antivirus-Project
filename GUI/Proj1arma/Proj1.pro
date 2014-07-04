@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     setting/excludedfiletype.cpp \
     setting/realtimproui.cpp \
     scan/scan.cpp \
-    state/state.cpp
+    state/state.cpp \
+    scan/scanini.cpp
 
 HEADERS  += mainui.h \
     setting/setting.h \
@@ -27,15 +28,17 @@ HEADERS  += mainui.h \
     setting/excludedfiletype.h \
     setting/realtimproui.h \
     scan/scan.h \
-    state/state.h
+    state/state.h \
+    scan/scanini.h
 
 FORMS    += mainui.ui \
     setting/setting.ui \
-    setting/advanced.ui \
     setting/excludedfiletype.ui \
     setting/realtimproui.ui \
     scan/scan.ui \
-    state/state.ui
+    state/state.ui \
+    scan/scanini.ui \
+    setting/advanced.ui
 
 RESOURCES += \
     img.qrc

@@ -16,9 +16,7 @@ Setting::Setting(QWidget *parent) :
     ui(new Ui::Setting)
 {
     ui->setupUi(this);
-    
-    
-    
+       
 }
 
 Setting::~Setting()
@@ -32,14 +30,16 @@ Ui::Setting *Setting::getUi(){
 
 void Setting::on_advancedButton_clicked()
 {
-    advanced.setParent(ui->appSetting);
+    realTimProUim.hide();
+    advanced.setParent(ui->appsetting);
     advanced.show();
     
 }
 
 void Setting::on_realTimeButton_clicked()
 {
-    realTimProUim.setParent(ui->appSetting);
+    advanced.hide();
+    realTimProUim.setParent(ui->appsetting);
     realTimProUim.show();
     
 }

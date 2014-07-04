@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>825</width>
-    <height>485</height>
+    <width>900</width>
+    <height>471</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,20 +18,20 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>825</width>
-     <height>485</height>
+     <width>900</width>
+     <height>471</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#tabSetting{border: 0.5px solid #559bf5;	background: white;}</string>
+    <string notr="true"/>
    </property>
-   <widget class="QWidget" name="appSetting" native="true">
+   <widget class="QWidget" name="appsetting" native="true">
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>40</y>
-      <width>550</width>
-      <height>370</height>
+      <y>9</y>
+      <width>631</width>
+      <height>421</height>
      </rect>
     </property>
     <property name="styleSheet">

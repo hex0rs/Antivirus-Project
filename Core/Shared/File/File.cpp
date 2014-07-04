@@ -4,7 +4,7 @@
  *  Created on: Apr 13, 2014
  *      Author: Ahmed
  */
-#include "Shared.h"
+#include "../Shared.h"
 #include "File.h"
 #include <iostream>
 #include <fstream>
@@ -66,3 +66,20 @@ string Shared::Common::File::getFileName(string path) {
 	return reversed;
 }
 
+string Shared::Common::File::getLastLine(fstream* file)
+{
+	string lastline;
+	file->seekg(0, file->end);
+	int length = file->tellg();
+	file->seekg(0, file->beg);
+	char c = ' ';
+	for (int i = length - 2; i > 0; i--)
+	{
+		file->seekg(i);
+		c = file->get();
+		if (c == '\r' || c == '\n')
+			break;
+	}
+	getline(*file, lastline);
+	return lastline;
+}

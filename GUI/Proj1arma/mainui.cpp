@@ -20,10 +20,10 @@ MainUi::MainUi(QWidget *parent) :
 {
     ui->setupUi(this);
     
-//    setting.show();
-//    scan.show();
-//    state.show();
-    
+    state.setParent(ui->tabWidget);
+    state.show();
+
+
 }
 
 MainUi::~MainUi()
@@ -51,24 +51,15 @@ void MainUi::on_settingPushButton_clicked()
 //    ui->tabWidget = setting.getUi()->tabSetting;
 //    setting.getUi()->tabSetting->show();
     scan.hide();
+    state.hide();
     setting.setParent(ui->tabWidget);
     setting.show();
     
     QEventLoop loop;
-    for(int i=-100;i<=-50;i++){
+    for(int i=-50;i<=0;i++){
         setting.move(i,0);    
         
-        QTimer::singleShot(0.5,&loop,SLOT(quit()));
-        loop.exec();
-    }
-    for(int i=-100;i<=-50;i++){
-        setting.move(i,0);        
-        QTimer::singleShot(1,&loop,SLOT(quit()));
-        loop.exec();
-    }
-    for(int i=-50;i<=0;i++){
-        setting.move(i,0);        
-        QTimer::singleShot(0.000001,&loop,SLOT(quit()));
+        QTimer::singleShot(0.1,&loop,SLOT(quit()));
         loop.exec();
     }
     
@@ -76,18 +67,32 @@ void MainUi::on_settingPushButton_clicked()
 
 void MainUi::on_scanPushButton_clicked()
 {
-    QEventLoop loop;
+    setting.hide();
+    state.hide();
     scan.setParent(ui->tabWidget);
     scan.show();
-    
-    int k=-200;
-    for(int i=0;i<=2000;i++){
-        setting.move(i,0);
-        if(k!=0){
-        scan.move(k,0);
-        }
-        k++;
-        QTimer::singleShot(0.000001,&loop,SLOT(quit()));
+    QEventLoop loop;
+    for(int i=-50;i<=0;i++){
+        scan.move(i,0);
+        //scan.styleSheet("opacity: "+i+";");
+        QTimer::singleShot(0.1,&loop,SLOT(quit()));
         loop.exec();
     }
+}
+
+void MainUi::on_statePushButton_clicked()
+{
+    setting.hide();
+    scan.hide();
+    state.setParent(ui->tabWidget);
+    state.show();
+
+    QEventLoop loop;
+    for(int i=-50;i<=0;i++){
+        state.move(i,0);
+
+        QTimer::singleShot(0.1,&loop,SLOT(quit()));
+        loop.exec();
+    }
+
 }

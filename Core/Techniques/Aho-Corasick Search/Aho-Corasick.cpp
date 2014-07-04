@@ -23,11 +23,7 @@ int Techniques::Static::AhoCorasick::CreateTrie(void)
 NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
 
 Shared::SigDb::Database d("Databases\\test.db");
-<<<<<<< HEAD
 if (d.init()==-1)
-=======
-if(d.init() != 0) //checking for errors
->>>>>>> origin/master
 {
 	cerr<<"[-]Database loading error !!";
 	return 1;

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
-    <height>600</height>
+    <width>900</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,25 +31,28 @@
    <property name="styleSheet">
     <string notr="true">#widget
 {
-	border: 2px solid #559bf5;
+	/*border: 2px solid #559bf5;*/
 	background: white;
 }</string>
    </property>
    <widget class="QWidget" name="tabWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>98</y>
-      <width>825</width>
-      <height>485</height>
+      <x>0</x>
+      <y>90</y>
+      <width>900</width>
+      <height>381</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
    <widget class="QPushButton" name="min">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>2</y>
+      <x>830</x>
+      <y>0</y>
       <width>34</width>
       <height>30</height>
      </rect>
@@ -71,6 +74,9 @@
       <family>Segoe UI</family>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="toolTip">
      <string>Minimize</string>
@@ -109,10 +115,10 @@ QPushButton:pressed{background-image: url(:/app/img/img/skin/minimize-hover.png)
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>688</width>
-      <height>45</height>
+      <x>119</x>
+      <y>39</y>
+      <width>801</width>
+      <height>49</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="hLayout">
@@ -130,13 +136,13 @@ QPushButton:pressed{background-image: url(:/app/img/img/skin/minimize-hover.png)
        <property name="font">
         <font>
          <family>Segoe UI</family>
-         <pointsize>19</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <pointsize>26</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton { color: #1aa2f1; }
+        <string notr="true">QPushButton { color: white; }
 
  QPushButton:pressed { color : darkgray; }
 
@@ -151,7 +157,7 @@ QLabel:hover{ color: black ;}
 QLabe:pressedl { color : darkgray; }*/</string>
        </property>
        <property name="text">
-        <string>state</string>
+        <string>Status</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -163,15 +169,15 @@ QLabe:pressedl { color : darkgray; }*/</string>
        <property name="font">
         <font>
          <family>Segoe UI</family>
-         <pointsize>19</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <pointsize>26</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+        <string notr="true">QPushButton { color: white; }
 
- QPushButton { color : darkgray; }
+ QPushButton:pressed { color : darkgray; }
 
  QPushButton:flat {  border: none;  }
 
@@ -184,7 +190,7 @@ QLabel:hover{ color: black ;}
 QLabe:pressedl { color : darkgray; }*/</string>
        </property>
        <property name="text">
-        <string>scan</string>
+        <string>Scan</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -196,15 +202,15 @@ QLabe:pressedl { color : darkgray; }*/</string>
        <property name="font">
         <font>
          <family>Segoe UI</family>
-         <pointsize>19</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <pointsize>26</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+        <string notr="true">QPushButton { color: white; }
 
- QPushButton { color : darkgray; }
+ QPushButton:pressed { color : darkgray; }
 
  QPushButton:flat {  border: none;  }
 
@@ -217,73 +223,7 @@ QLabel:hover{ color: black ;}
 QLabe:pressedl { color : darkgray; }*/</string>
        </property>
        <property name="text">
-        <string>quarantine</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="historyPushButton">
-       <property name="font">
-        <font>
-         <family>Segoe UI</family>
-         <pointsize>19</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
-
- QPushButton { color : darkgray; }
-
- QPushButton:flat {  border: none;  }
-
-QPushButton:hover { color: black; }
-
-/* QPushButton:default { border-color: #1aa2f1; }
-
-QLabel { color : #1aa2f1; }
-QLabel:hover{ color: black ;}
-QLabe:pressedl { color : darkgray; }*/</string>
-       </property>
-       <property name="text">
-        <string>history</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="updatePushButton">
-       <property name="font">
-        <font>
-         <family>Segoe UI</family>
-         <pointsize>19</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
-
- QPushButton { color : darkgray; }
-
- QPushButton:flat {  border: none;  }
-
-QPushButton:hover { color: black; }
-
-/* QPushButton:default { border-color: #1aa2f1; }
-
-QLabel { color : #1aa2f1; }
-QLabel:hover{ color: black ;}
-QLabe:pressedl { color : darkgray; }*/</string>
-       </property>
-       <property name="text">
-        <string>update</string>
+        <string>Quarantine</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -295,15 +235,15 @@ QLabe:pressedl { color : darkgray; }*/</string>
        <property name="font">
         <font>
          <family>Segoe UI</family>
-         <pointsize>19</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <pointsize>26</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+        <string notr="true">QPushButton { color: white; }
 
- QPushButton { color : darkgray; }
+ QPushButton:pressed { color : darkgray; }
 
  QPushButton:flat {  border: none;  }
 
@@ -316,7 +256,7 @@ QLabel:hover{ color: black ;}
 QLabe:pressedl { color : darkgray; }*/</string>
        </property>
        <property name="text">
-        <string>setting</string>
+        <string>Setting</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -328,15 +268,15 @@ QLabe:pressedl { color : darkgray; }*/</string>
        <property name="font">
         <font>
          <family>Segoe UI</family>
-         <pointsize>19</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <pointsize>26</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton:pressed { color: #1aa2f1; }
+        <string notr="true">QPushButton { color: white; }
 
- QPushButton { color : darkgray; }
+ QPushButton:pressed { color : darkgray; }
 
  QPushButton:flat {  border: none;  }
 
@@ -349,7 +289,7 @@ QLabel:hover{ color: black ;}
 QLabe:pressedl { color : darkgray; }*/</string>
        </property>
        <property name="text">
-        <string>about</string>
+        <string>Help</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -361,8 +301,8 @@ QLabe:pressedl { color : darkgray; }*/</string>
    <widget class="QPushButton" name="close">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>2</y>
+      <x>860</x>
+      <y>0</y>
       <width>34</width>
       <height>30</height>
      </rect>
@@ -384,6 +324,9 @@ QLabe:pressedl { color : darkgray; }*/</string>
       <family>Segoe UI</family>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="toolTip">
      <string>Close</string>
@@ -413,6 +356,108 @@ QPushButton:pressed{background-image: url(:/app/img/img/skin/close-hover.png); b
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1000</width>
+      <height>138</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="img.qrc">:/img/main-header.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>23</x>
+      <y>30</y>
+      <width>78</width>
+      <height>84</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="img.qrc">:/app/img/img/logo.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>470</y>
+      <width>900</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(3, 169, 244);
+border-top: 2px solid #bdbdbd;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>410</y>
+      <width>311</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>14</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 3px solid #bdbdbd;
+background-color: rgb(3, 169, 244);
+border-radius: 60px;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>45</x>
+       <y>34</y>
+       <width>49</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="img.qrc">:/app/img/img/arrow-in-circle.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+   <zorder>tabWidget</zorder>
+   <zorder>label</zorder>
+   <zorder>min</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>close</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>widget_2</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

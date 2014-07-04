@@ -2,6 +2,7 @@
 #include <QApplication>
 
 #include "setting/setting.h"
+#include "scan/scan.h"
 
 int main(int argc, char *argv[])
 {

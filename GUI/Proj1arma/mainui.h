@@ -35,6 +35,8 @@ private slots:
     
     void on_scanPushButton_clicked();
     
+    void on_statePushButton_clicked();
+
 private:
     Ui::MainUi *ui;
     

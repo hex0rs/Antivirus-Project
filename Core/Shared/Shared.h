@@ -20,10 +20,5 @@ namespace Shared
 		class Database;
 		class Signature;
 	}
-	namespace Connections
-	{
-
-	}
-
 }
 #endif
