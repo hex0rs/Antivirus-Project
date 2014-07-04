@@ -1,0 +1,16 @@
+-> scan
+	-> file / folder
+			-> now
+			-> schedule
+-> scan controls 
+		-> start / pause
+		-> progress bar
+-> scan info
+		-> current scanning file 
+		-> number of healthy files
+		-> number of infected files
+-> scanning result
+		-> number of scanned files [healthy, infected]
+		-> infected files , virus name
+		-> add to quarantine option
+		

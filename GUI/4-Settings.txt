@@ -1,0 +1,21 @@
+-> UI settings
+	-> open in start up
+	-> pop-ups settings
+			-> alerting
+			-> warning
+			-> update
+	-> orientation [tips 3shan 5ater mo7a] settings
+	-> minimize to tray
+-> Scanning settings
+		-> automatic scanning
+		-> scanning algorthim used
+		-> scanning filters based on [size, type]
+-> Quarantine settings
+		-> max number of files
+		-> encrypt files
+		->
+-> Update
+		-> update core
+		-> update gui
+		-> update database
+		-> update automatic [on/off]

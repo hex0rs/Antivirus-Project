@@ -1,0 +1,20 @@
+- general status "Everything is okay" , "Something is Wrong !!"
+-program status
+		-> current arma core version
+		-> current arma GUI version
+		-> latest arma core version
+		-> latest arma GUI version
+		-> Arma server connection status
+- database status
+		-> current database version		
+		-> number of signatures in database
+		-> latest database version
+		-> shortcut to database update
+- scanning status
+		-> number of scanned files
+		-> used scanning algorithm
+		-> scanning state [Excellent - Fine - Critical]
+		-> shortcut to scanning
+- quarantine status
+		-> number of files in quarantine
+		-> shotcut to quarantine

@@ -1,0 +1,3 @@
+->Quarantine table
+		-> File Name , File Path , Virus Name [restore] [remove]
+->Clear Quarantine
