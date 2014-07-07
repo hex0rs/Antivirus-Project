@@ -14,20 +14,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "../Shared/Quarantine/Quarantine.h"
+#include "../Techniques/Techniques.h"
+#include "../Techniques/BMH/BMH.h"
+#include "../Techniques/Aho-Corasick Search/Aho-Corasick.h"
+#include "../Shared/SigDb/Database.h"
+#ifdef WIN32
+#include "../Shared/OS/Windows.h"
+#else
+#include "../Shared/OS/Linux.h"
+#endif
 
-
+#define QuarantinePath "Quarantine/quarantine.qdb"
+#define VersionPath "Version"
+#define VersionURL ""
+#define bmdbPath ""
+#define acdbPath ""
+#define bmdbURL ""
+#define acdbURL ""
 bool cmp(char* arg, char* opt1, char* opt2);
 
 void printBanner();
 void printHelp(char* opt);
-void printVersion();
-void printLatestVersion();
 
 class scan_result
 {
 public:
 	bool isInfected;
 	char* virusName;
+	static void printResult(scan_result result);
 
 };
 
@@ -48,26 +63,24 @@ class iface_quarantine
 {
 public:
 	static void list();
-	static void add(char* path);
-	static void restore(int qID);
+	static void add(char* path, char* foundVirus="UNKNOWN", int key=1);
+	static void restore(int qID, int key=1);
 	static void remove(int qID);
 };
 class iface_update
 {
 public:
-	int UpdateVersion();
-	int UpdateDatabaseRemotely();
-	int UpdateDatabaseLocally(char* db);
+	static int UpdateVersion();
+	static int UpdateDatabaseRemotely();
+	static int UpdateDatabaseLocally(char* db);
 
 };
 class iface_state
 {
 public:
-	int GetCurrentVersion();
-	int GetLatestVersion();
-	int GetDatabaseCurrentVersion();
-	int GetDatabaseLatestVersion();
-	int GetQuarantineState();
+	static int GetCurrentVersion();
+	static int GetLatestVersion();
+	static int GetQuarantineState();
 };
 
 #endif /* INTERFACE_H_ */

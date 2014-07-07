@@ -21,10 +21,12 @@ public:
 	File(char* FilePath);
 	void Process();
 	void Process(char* FilePath);
-	static char* openFile(string path ,streampos* size);
 	static string getFileName(string path);
 	static string getLastLine(fstream* file);
+	static void printFile(char* path);
 	static int encryptFile(char* path, int key);
 	static int decryptFile(char* path, int key);
+	static char* addExt(char* name, char* ext);
+	static char* removeExt(char* name, int len);
 };
 #endif

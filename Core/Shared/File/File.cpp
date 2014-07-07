@@ -45,10 +45,15 @@ void Shared::Common::File::Process(char* FilePath)
 	this->Process();
 
 }
-char* Shared::Common::File::openFile(string path,streampos* size)
+
+void Shared::Common::File::printFile(char* path)
 {
-	return "";
+	ifstream f(path);
+	string line;
+	while (getline(f, line))
+		cout << line << endl;
 }
+
 string Shared::Common::File::getFileName(string path) {
 
 	string temp = "";
@@ -120,4 +125,18 @@ int Shared::Common::File::decryptFile(char* path,int key)
 	}
 	fclose(f);
 	return 1;
+}
+char* Shared::Common::File::addExt(char* name, char* ext)
+{
+	char* new_path = new char[strlen(name) + strlen(ext)];
+	strcpy_s(new_path, strlen(name) + 1, name);
+	strcat_s(new_path, strlen(name) + strlen(ext) + 1, ext);
+	return new_path;
+}
+char* Shared::Common::File::removeExt(char* name, int len)
+{
+	char* new_path = new char[strlen(name) - len -1];
+	memcpy(new_path, name, strlen(name) - len);
+	new_path[strlen(name) - len] = '\0';
+	return new_path;
 }

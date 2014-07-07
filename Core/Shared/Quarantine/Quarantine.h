@@ -3,23 +3,27 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include "../File/File.h"
+#include "../Shared.h"
+#include <sstream>
+#ifdef WIN32
+#include "../OS/Windows.h"
+#else
+#include "../OS/Linux.h"
+#endif
 class Qfile
 {
 public:
-	int qID;
-	char* path;
-	char* foundVirus;
-	int key;
-	static void printQfile(Qfile Qfile);
-
+	string qID;
+	string path;
+	string foundVirus;
+	string key;
+	static void printQfile(Qfile qfile);
 };
 
 
 class Qdb
 {
-	char* add_qf(char* path);
-	char* remove_qf(char* path);
-
 public:
 	Qdb();
 	Qdb(char* QdbPath);
@@ -29,6 +33,8 @@ public:
 	int restore(int qID,int key=1);
 	int remove(int qID);
 	void list();
+	static char* add_qf(char* path);
+	static char* remove_qf(char* path);
 };
 
 

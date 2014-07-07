@@ -1,29 +1,31 @@
 #include "Quarantine.h"
-#include "../File/File.h"
-#ifdef WIN32
-#include "../OS/Windows.h"
-#else
-#include "../OS/Linux.h"
-#endif
-#include "../File/File.h"
-#include "../Shared.h"
-#include <sstream>
+#include "../../Interface/Interface.h"
+
+
+
+
 using namespace std;
 using namespace Shared::Common;
-using namespace OS;
 
-void Qfile::printQfile(Qfile file)
+
+
+void Qfile::printQfile(Qfile qf)
 {
-	cout << "[+] File ID : " << file.qID << endl;
-	cout << "[+] File Name : " << File::getFileName(file.path) << endl;
-	cout << "[+] File Path : " << file.path << endl;
+	cout << "----------------------------------------------------------" << endl;
+	cout << "[+] Name : " << Qdb::remove_qf((char*)File::getFileName(qf.path).c_str()) << endl;
+	cout << "[+] ID : " << qf.qID << endl;
+	cout << "[+] Path : " << qf.path << endl;
+	cout << "[+] Virus : " << qf.foundVirus << endl;
+	cout << "[+] Key : " << qf.key << endl;
+	cout << "----------------------------------------------------------" << endl;
 }
+
 Qdb::Qdb()
 {
-	this->QdbPath = "Quarantine\Quarantine.qdb";
+	this->QdbPath = QuarantinePath;
 	if (this->init() == -1)
 	{
-		cerr << "Error Initializing Quarantine.qdb file";
+		cout << "[-] Error Initializing Quarantine.qdb file" << endl;
 	}
 }
 Qdb::Qdb(char* Path)
@@ -31,7 +33,7 @@ Qdb::Qdb(char* Path)
 	this->QdbPath = Path;
 	if (this->init() == -1)
 	{
-		cerr << "Error Initializing passed qdb file";
+		cout << "[-] Error Initializing passed qdb file" << endl;
 	}
 }
 int Qdb::init()
@@ -45,7 +47,7 @@ int Qdb::init()
 
 int Qdb::add(char* path,char* foundVirus,int key)
 {
-	if (closeProcess(path) == -1)
+	if (OS::closeProcess(path) == -1)
 	{
 		cout << "[-] Error closing file"<<endl;
 		return -1;
@@ -67,7 +69,7 @@ int Qdb::add(char* path,char* foundVirus,int key)
 	//rename file
 	rename(path, new_path);
 	//hide file
-	hideFile(new_path);
+	OS::hideFile(new_path);
 	// add file in qdb
 		// parse last entry to get last qID
 	string lastline = File::getLastLine(&quarantine);
@@ -81,7 +83,6 @@ int Qdb::add(char* path,char* foundVirus,int key)
 	quarantine.close();
 	return 1;
 }
-
 int Qdb::remove(int qID)
 {
 	ifstream quarantine(this->QdbPath, ios::ate);
@@ -114,7 +115,7 @@ int Qdb::remove(int qID)
 	stringstream stream(filerecord);
 	getline(stream, temp, '|'); //get qID
 	getline(stream, temp, '|'); //get path
-	deleteFile(temp.c_str());
+	OS::deleteFile(temp.c_str());
 	//return the quarantine records back to quarantine file
 	quarantine.close();
 	ofstream new_quarantine(this->QdbPath, ios::out);
@@ -170,18 +171,35 @@ int Qdb::restore(int qID,int key)
 	new_quarantine.close();
 	return 1;
 }
+void Qdb::list()
+{
+	ifstream quarantine(this->QdbPath, ios::ate);
+	if (!quarantine.good())
+	{
+		cout << "[-] Error openning quarantine database" << endl;
+	}
+	int size = quarantine.tellg();
+	Qfile temp; string garb;
+	quarantine.seekg(ios::beg);
+	while (!quarantine.eof())
+	{
+		getline(quarantine, temp.qID ,'|');
+		getline(quarantine, temp.path  , '|');
+		getline(quarantine, temp.foundVirus , '|');
+		getline(quarantine, temp.key, '|');
+		getline(quarantine, garb);
+		Qfile::printQfile(temp);
+	}
+}
 
 char* Qdb::add_qf(char* path)
 {
-	char* new_path = new char[strlen(path) + 3];
-	strcpy_s(new_path, strlen(path) + 1, path);
-	strcat_s(new_path, strlen(path) + 4, ".qf");
+	char* new_path = File::addExt(path, ".qf");
 	return new_path;
 }
 char* Qdb::remove_qf(char* path)
 {
-	char* new_path = new char[strlen(path) - 2];
-	memcpy(new_path, path, strlen(path) - 3);
-	new_path[strlen(path) - 3] = '\0';
+	char* new_path = File::removeExt(path,3);
 	return new_path;
 }
+

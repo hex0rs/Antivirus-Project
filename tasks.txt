@@ -1,13 +1,17 @@
 client -->
 - aho client 
 - database acdb / bmdb
-- quarantine / qfile /qdb
+* quarantine / qfile /qdb
 - threading (open threads)
 - connections (dwn file)
 - memory mapped files
 - interface.cpp
+
+
+
 server -->
 - version file 
+- bmdb maker (load signatures from NDB and give them version, update date and signatures number)
 - load bmdb file
 - create acdb file using [aho server]
 - 

@@ -7,7 +7,7 @@
 #include "Interface.h"
 
 using namespace std;
-
+using namespace Shared::Common;
 bool cmp(char* arg, char* opt1, char* opt2)
 {
 	char* op1 = new char(strlen(opt1)+2);
@@ -109,58 +109,44 @@ void printBanner()
 	int choosed_banner = rand()%10;
 	cout << banners[choosed_banner] << endl;
 }
-void printFile(char* path)
-{
-	ifstream f(path);
-	string line;
-	while (getline(f, line))
-		cout << line << endl;
-}
 void printHelp(char* opt)
 {
 	if (strcmp(opt, "all") == 0)
 	{
-		printFile("Help/h_info");
-		printFile("Help/h_scan");
-		printFile("Help/h_quarantine");
-		printFile("Help/h_update");
+		File::printFile("Help/h_info");
+		File::printFile("Help/h_scan");
+		File::printFile("Help/h_quarantine");
+		File::printFile("Help/h_update");
 	}
 	else if (strcmp(opt, "scan") == 0)
 	{
-		printFile("Help/h_scan");
+		File::printFile("Help/h_scan");
 
 	}
 	else if (strcmp(opt, "quarantine") == 0)
 	{
-		printFile("Help/h_quarantine");
+		File::printFile("Help/h_quarantine");
 
 	}
 	else if (strcmp(opt, "update") == 0)
 	{
-		printFile("Help/h_update");
+		File::printFile("Help/h_update");
 
 	}
 	else if (strcmp(opt, "info") == 0)
 	{
-		printFile("Help/h_info");
+		File::printFile("Help/h_info");
 
 	}
 	else
 	{
-		printFile("Help/h_help");
+		File::printFile("Help/h_help");
 
 	}
 	
 }
-void printVersion()
-{
-cout << "current version";
-}
-void printLatestVersion()
-{
-cout << "Latest version";
-}
-void printResult(scan_result result)
+
+void scan_result::printResult(scan_result result)
 {
 	if(!result.isInfected)
 		cout << "[+] File is Healthy !!"<<endl;
@@ -185,35 +171,56 @@ void iface_scan::setScanMethod()
 }
 void iface_scan::scan_file()
 {
-	scan_result* result = new scan_result();
-	result->isInfected = true;
-	result->virusName = "7amada firus";
-	printResult(*result);
+	scan_result result;
+	result.isInfected = true;
+	result.virusName = "7amada firus";
+	scan_result::printResult(result);
 }
 void iface_scan::scan_directory()
 {
-	scan_result* result = new scan_result();
-	result->isInfected = true;
-	result->virusName = "3abdo firus";
-	printResult(*result);
+	scan_result result;
+	result.isInfected = true;
+	result.virusName = "mo7a firus";
+	scan_result::printResult(result);
 }
 
 //iface_quarantine
 void iface_quarantine::list()
 {
+	Qdb quarantine;
+	quarantine.QdbPath = QuarantinePath;
+	quarantine.init();
+	quarantine.list();
 
 }
-void iface_quarantine::add(char* path)
+void iface_quarantine::add(char* path,char* foundVirus,int key)
 {
+	Qdb quarantine;
+	quarantine.QdbPath = QuarantinePath;
+	if (quarantine.add(path, foundVirus, key) == -1)
+		cout << "[-] Error Adding this file to quarantine !!" << endl;
+	else
+		cout << "[+] File Added Successfully !!" << endl;
 
 }
-void iface_quarantine::restore(int qID)
+void iface_quarantine::restore(int qID,int key)
 {
+	Qdb quarantine;
+	quarantine.QdbPath = QuarantinePath;
+	if (quarantine.restore(qID,key) == -1)
+		cout << "[-] Error restoring this file from quarantine !!" << endl;
+	else
+		cout << "[+] File Restored Successfully !!" << endl;
 
 }
 void iface_quarantine::remove(int qID)
 {
-
+	Qdb quarantine;
+	quarantine.QdbPath = QuarantinePath;
+	if (quarantine.remove(qID) == -1)
+		cout << "[-] Error removing this file from quarantine !!" << endl;
+	else
+		cout << "[+] File Removed Successfully !!" << endl;
 }
 
 //iface_update
@@ -233,20 +240,22 @@ int iface_update::UpdateDatabaseRemotely()
 //iface_state
 int iface_state::GetCurrentVersion()
 {
+	string core_vr, gui_vr, bmdb_vr, acdb_vr;
+	fstream ver_file(VersionPath, ios::in);
+	ver_file >> core_vr >> gui_vr >> bmdb_vr >> acdb_vr;
+	cout << "Arma Version Status ->" << endl;
+	cout << "[+] Core	: " << core_vr << endl;
+	cout << "[+] GUI		: " << gui_vr << endl;
+	cout << "[+] BMH db	: " << bmdb_vr << endl;
+	cout << "[+] Aho db	: " << acdb_vr << endl; 
 	return 0;
 }
 int iface_state::GetLatestVersion()
 {
+	OS::downloadFile(VersionURL, VersionPath);
 	return 0;
 }
-int iface_state::GetDatabaseCurrentVersion()
-{
-	return 0;
-}
-int iface_state::GetDatabaseLatestVersion()
-{
-	return 0;
-}
+
 
 
 

@@ -78,11 +78,11 @@ if( cmp(argv[1],"h","help") )
 
 else if( cmp(argv[1],"v","version"))
 {
-	printVersion();
+	iface_state::GetCurrentVersion();
 }
 else if(cmp(argv[1],"cv","check"))
 {
-	printLatestVersion();
+	iface_state::GetLatestVersion();
 }
 else if (cmp(argv[1],"s","scan") && argc == 6)
 {
@@ -147,6 +147,7 @@ else if (cmp(argv[1],"s","scan") && argc == 6)
 		cout << "[-] Undefined Scanning switches !!"<<endl;
 		printHelp("scan");
 	}
+	delete scan;
 }
 else if (cmp(argv[1], "q", "quarantine") && (argc == 3 || argc == 4 ))
 {

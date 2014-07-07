@@ -11,9 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{706C2D0C-E0A6-49C5-ACFC-ABCB3C22AB96}</ProjectGuid>
+    <ProjectGuid>{8AC2C283-60C8-4F0E-A1B0-08A3DAF450B1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>arma-av</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -73,7 +72,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\interface\Interface.cpp" />
-    <ClCompile Include="Core\Shared\File\File.cpp" />
+    <ClCompile Include="core\shared\file\File.cpp" />
+    <ClCompile Include="core\shared\os\Windows.cpp" />
     <ClCompile Include="core\shared\quarantine\Quarantine.cpp" />
     <ClCompile Include="core\shared\sigdb\Database.cpp" />
     <ClCompile Include="core\shared\sigdb\Signature.cpp" />
@@ -85,10 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\interface\Interface.h" />
-    <ClInclude Include="Core\Shared\File\File.h" />
-    <ClInclude Include="Core\Shared\Misc\threading.h" />
-    <ClInclude Include="Core\Shared\OS\Linux.h" />
-    <ClInclude Include="Core\Shared\OS\Windows.h" />
+    <ClInclude Include="core\shared\file\File.h" />
+    <ClInclude Include="core\shared\os\Windows.h" />
     <ClInclude Include="core\shared\quarantine\Quarantine.h" />
     <ClInclude Include="core\shared\Shared.h" />
     <ClInclude Include="core\shared\sigdb\Database.h" />
@@ -98,6 +96,26 @@
     <ClInclude Include="core\techniques\bmh\BMH.h" />
     <ClInclude Include="core\techniques\Techniques.h" />
     <ClInclude Include="core\tools\ndbtodb converter\NDBtoDb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Help\h_help" />
+    <None Include="Help\h_info" />
+    <None Include="Help\h_quarantine" />
+    <None Include="Help\h_scan" />
+    <None Include="Help\h_update" />
+    <None Include="Quarantine\Quarantine.qdb" />
+    <None Include="Quarantine\ReadMe.md" />
+    <None Include="README.md" />
+    <None Include="test.exe" />
+    <None Include="Version" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="GUI\1-Status.txt" />
+    <Text Include="GUI\2-Scan.txt" />
+    <Text Include="GUI\3-Quarantine.txt" />
+    <Text Include="GUI\4-Settings.txt" />
+    <Text Include="GUI\5-Help.txt" />
+    <Text Include="tasks.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

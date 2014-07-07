@@ -25,7 +25,7 @@ NDBtoDbConverter("Databases\\NDB.ndb", "Databases\\test.db");
 Shared::SigDb::Database d("Databases\\test.db");
 if (d.init()==-1)
 {
-	cerr<<"[-]Database loading error !!";
+	cerr<<"[-] Database loading error !!";
 	return 1;
 }
 
@@ -33,7 +33,8 @@ if (d.init()==-1)
 
 for(int i=0;i<d.SignaturesNumber;i++)
 {
-  Add( d.SignaturesList[i].HexSignature, d.SignaturesList[i].VirusName,"Not filled yet.",1);
+
+  Add( d.SignaturesList[i].HexSignature, d.SignaturesList[i].VirusName,d.SignaturesList[i].type,1);
 }
 
 Build_Fail_Edges();

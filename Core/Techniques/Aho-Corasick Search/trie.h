@@ -5,7 +5,8 @@
 
 #include <iostream>
 
-struct Node{
+struct Node
+{
     bool IsLeaf;
     char ch;
     unsigned int ID; //used to identify nodes in saving and loading DB
