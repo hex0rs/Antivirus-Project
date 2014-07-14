@@ -25,13 +25,13 @@
 #include "../Shared/OS/Linux.h"
 #endif
 
-#define QuarantinePath "Quarantine/quarantine.qdb"
-#define VersionPath "Version"
-#define VersionURL ""
-#define bmdbPath ""
-#define acdbPath ""
-#define bmdbURL ""
-#define acdbURL ""
+char* QuarantinePath = "Quarantine/quarantine.qdb";
+char* VersionPath = "Version";
+char* VersionURL = "http://www.arma-av.allalla.com/Version";
+char* bmdbPath = "Databases/bmdb/orig.bmdb";
+char* acdbPath = "";
+char* bmdbURL = "";
+char* acdbURL = "";
 bool cmp(char* arg, char* opt1, char* opt2);
 
 void printBanner();
@@ -42,7 +42,7 @@ class scan_result
 public:
 	bool isInfected;
 	char* virusName;
-	static void printResult(scan_result result);
+	void printResult();
 
 };
 
@@ -63,16 +63,19 @@ class iface_quarantine
 {
 public:
 	static void list();
-	static void add(char* path, char* foundVirus="UNKNOWN", int key=1);
-	static void restore(int qID, int key=1);
+	static void add(char* path, char* foundVirus, int key);
+	static void restore(int qID);
 	static void remove(int qID);
+	static void clear();
 };
 class iface_update
 {
 public:
-	static int UpdateVersion();
-	static int UpdateDatabaseRemotely();
-	static int UpdateDatabaseLocally(char* db);
+	static int UpdateCore();
+	static int UpdateGUI();
+	static int UpdateDbRemotely();
+	static int UpdateBMHDBLocally(char* bmdb);
+	static int UpdateACDBLocally(char* acdb);
 
 };
 class iface_state
@@ -80,7 +83,7 @@ class iface_state
 public:
 	static int GetCurrentVersion();
 	static int GetLatestVersion();
-	static int GetQuarantineState();
+	static void GetQuarantineState();
 };
 
 #endif /* INTERFACE_H_ */

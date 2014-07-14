@@ -89,7 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Version" />
-    <None Include="test.exe" />
     <None Include="README.md" />
     <None Include="Quarantine\ReadMe.md" />
     <None Include="Quarantine\Quarantine.qdb" />

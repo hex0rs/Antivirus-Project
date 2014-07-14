@@ -29,9 +29,10 @@ public:
 	Qdb(char* QdbPath);
 	char* QdbPath;
 	int init();
-	int add(char* path,char* foundVirus="UNKNOWN",int key=1);
-	int restore(int qID,int key=1);
+	int add(char* path,char* foundVirus,int key);
+	int restore(int qID);
 	int remove(int qID);
+	int clear();
 	void list();
 	static char* add_qf(char* path);
 	static char* remove_qf(char* path);

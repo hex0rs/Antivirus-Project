@@ -8,14 +8,18 @@
 
 using namespace std;
 using namespace Shared::Common;
+using namespace Techniques::Static;
+using namespace Shared::SigDb;
 bool cmp(char* arg, char* opt1, char* opt2)
 {
+	if (arg == NULL)
+		return false;
 	char* op1 = new char(strlen(opt1)+2);
-	strcpy(op1 , "-");
+	strcpy_s(op1 ,2, "-");
 	char* op2 = new char(strlen(opt2)+3);
-	strcpy(op2 , "--");
-	strcat(op1,opt1);
-	strcat(op2,opt2);
+	strcpy_s(op2 ,3, "--");
+	strcat_s(op1, strlen(op1) + strlen(opt1) + 1, opt1);
+	strcat_s(op2, strlen(op2) + strlen(opt2) + 1, opt2);
 	if(strcmp(arg,op1)== 0 || strcmp(arg,op2) == 0)
 		return true;
 	else
@@ -107,7 +111,11 @@ void printBanner()
 )";
 	srand(time(NULL));
 	int choosed_banner = rand()%10;
+	int choosed_color_1 = rand() % 15 + 1;
+	int choosed_color_2 = rand() % 15 + 1;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), choosed_color_1);
 	cout << banners[choosed_banner] << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), choosed_color_2);
 }
 void printHelp(char* opt)
 {
@@ -146,14 +154,14 @@ void printHelp(char* opt)
 	
 }
 
-void scan_result::printResult(scan_result result)
+void scan_result::printResult()
 {
-	if(!result.isInfected)
-		cout << "[+] File is Healthy !!"<<endl;
+	if(!this->isInfected)
+		cout << "[+] Healthy !!"<<endl;
 	else
 	{
-		cout << "[+] File is infected !!"<<endl;
-		cout << "[+] Virus Name : " << result.virusName <<endl;
+		cout << "[+] Infected !!"<<endl;
+		cout << "[+] Virus Name : " << this->virusName <<endl;
 	}
 }
 
@@ -172,8 +180,32 @@ void iface_scan::setScanMethod()
 void iface_scan::scan_file()
 {
 	scan_result result;
-	result.isInfected = true;
-	result.virusName = "7amada firus";
+	if (this->ScanMethodNum == 1)
+	{
+		Database db(bmdbPath);
+		db.init();
+		File f(this->path);
+		BMH bm;
+		for (int i = 0; i < db.SignaturesNumber; i++)
+		{
+			if (bm.search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize, f.Buffer, f.BufferSize) != -1)
+			{
+				result.isInfected = true;
+				result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
+				break;
+			}
+		}
+		result.printResult();
+
+	}
+	else if (this->ScanMethodNum == 2)
+	{
+
+	}
+	else if (this->ScanMethodNum == 3)
+	{
+
+	}
 	scan_result::printResult(result);
 }
 void iface_scan::scan_directory()
@@ -188,26 +220,22 @@ void iface_scan::scan_directory()
 void iface_quarantine::list()
 {
 	Qdb quarantine;
-	quarantine.QdbPath = QuarantinePath;
-	quarantine.init();
 	quarantine.list();
 
 }
 void iface_quarantine::add(char* path,char* foundVirus,int key)
 {
 	Qdb quarantine;
-	quarantine.QdbPath = QuarantinePath;
 	if (quarantine.add(path, foundVirus, key) == -1)
 		cout << "[-] Error Adding this file to quarantine !!" << endl;
 	else
 		cout << "[+] File Added Successfully !!" << endl;
 
 }
-void iface_quarantine::restore(int qID,int key)
+void iface_quarantine::restore(int qID)
 {
 	Qdb quarantine;
-	quarantine.QdbPath = QuarantinePath;
-	if (quarantine.restore(qID,key) == -1)
+	if (quarantine.restore(qID) == -1)
 		cout << "[-] Error restoring this file from quarantine !!" << endl;
 	else
 		cout << "[+] File Restored Successfully !!" << endl;
@@ -216,23 +244,39 @@ void iface_quarantine::restore(int qID,int key)
 void iface_quarantine::remove(int qID)
 {
 	Qdb quarantine;
-	quarantine.QdbPath = QuarantinePath;
 	if (quarantine.remove(qID) == -1)
-		cout << "[-] Error removing this file from quarantine !!" << endl;
+		cout << "[-] Error deleting this file from quarantine !!" << endl;
 	else
-		cout << "[+] File Removed Successfully !!" << endl;
+		cout << "[+] File Deleted Successfully !!" << endl;
+}
+void iface_quarantine::clear()
+{
+	Qdb quarantine;
+	if (quarantine.clear() == -1)
+		cout << "[-] Error Clearing Quarantine !!" << endl;
+	else
+		cout << "[+] Quarantine Cleared Successfully !!" << endl;
+
 }
 
 //iface_update
-int iface_update::UpdateVersion()
+int iface_update::UpdateCore()
 {
 	return 1;
 }
-int iface_update::UpdateDatabaseLocally(char* db)
+int iface_update::UpdateGUI()
 {
 	return 1;
 }
-int iface_update::UpdateDatabaseRemotely()
+int iface_update::UpdateDbRemotely()
+{
+	return 1;
+}
+int iface_update::UpdateBMHDBLocally(char* bmdb)
+{
+	return 1;
+}
+int iface_update::UpdateACDBLocally(char* acdb)
 {
 	return 1;
 }
@@ -242,20 +286,42 @@ int iface_state::GetCurrentVersion()
 {
 	string core_vr, gui_vr, bmdb_vr, acdb_vr;
 	fstream ver_file(VersionPath, ios::in);
-	ver_file >> core_vr >> gui_vr >> bmdb_vr >> acdb_vr;
-	cout << "Arma Version Status ->" << endl;
-	cout << "[+] Core	: " << core_vr << endl;
-	cout << "[+] GUI		: " << gui_vr << endl;
-	cout << "[+] BMH db	: " << bmdb_vr << endl;
-	cout << "[+] Aho db	: " << acdb_vr << endl; 
-	return 0;
+	if (ver_file.good())
+	{
+		ver_file >> core_vr >> gui_vr >> bmdb_vr >> acdb_vr;
+		cout << "Arma Version Status ->" << endl;
+		cout << "[+] Core	: " << core_vr << endl;
+		cout << "[+] GUI		: " << gui_vr << endl;
+		cout << "[+] BMH db	: " << bmdb_vr << endl;
+		cout << "[+] Aho db	: " << acdb_vr << endl;
+		return 0;
+	}
+	else
+		return -1;
 }
 int iface_state::GetLatestVersion()
 {
-	OS::downloadFile(VersionURL, VersionPath);
+	char* new_ver = File::addExt(VersionPath, ".newVer");
+	if (OS::downloadFile(VersionURL, new_ver) == -1)
+		return -1;
+	else
+	{
+		fstream ver_file(new_ver, ios::in);
+		string core_vr, gui_vr, bmdb_vr, acdb_vr;
+		ver_file >> core_vr >> gui_vr >> bmdb_vr >> acdb_vr;
+		cout << "Arma Version Status ->" << endl;
+		cout << "[+] Core	: " << core_vr << endl;
+		cout << "[+] GUI		: " << gui_vr << endl;
+		cout << "[+] BMH db	: " << bmdb_vr << endl;
+		cout << "[+] Aho db	: " << acdb_vr << endl;
+		return 0;
+	}
+	OS::deleteFile(new_ver);
 	return 0;
 }
-
+void iface_state::GetQuarantineState()
+{
+}
 
 
 

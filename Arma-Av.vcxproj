@@ -106,7 +106,6 @@
     <None Include="Quarantine\Quarantine.qdb" />
     <None Include="Quarantine\ReadMe.md" />
     <None Include="README.md" />
-    <None Include="test.exe" />
     <None Include="Version" />
   </ItemGroup>
   <ItemGroup>

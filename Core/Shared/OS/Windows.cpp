@@ -40,6 +40,10 @@ void OS::hideFile(char* path)
 {
 	SetFileAttributesA(path, FILE_ATTRIBUTE_HIDDEN);
 }
+void OS::unhideFile(char* path)
+{
+	int res = SetFileAttributesA(path, FILE_ATTRIBUTE_NORMAL);
+}
 void OS::deleteFile(const char* path)
 {
 	DeleteFileA(path);

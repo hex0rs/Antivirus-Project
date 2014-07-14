@@ -67,10 +67,6 @@ if(argc < 2)
 	printHelp("all");
 	return 0;
 }
-//parsing the new way
-//for(int i=0;i<argc;i++)
-	//cout << argv[i] <<endl;
-
 if( cmp(argv[1],"h","help") )
 {
 	printHelp(argv[2]);
@@ -78,12 +74,20 @@ if( cmp(argv[1],"h","help") )
 
 else if( cmp(argv[1],"v","version"))
 {
-	iface_state::GetCurrentVersion();
+	if (iface_state::GetCurrentVersion() == -1)
+	{
+		cout << "[-] Error finding current version file" << endl;
+	}
 }
 else if(cmp(argv[1],"cv","check"))
 {
-	iface_state::GetLatestVersion();
+	cout << "[+] Downloading the latest Version File . . . " << endl;
+	if (iface_state::GetLatestVersion() == -1)
+	{
+		cout << "[-] Error finding latest version file" << endl;
+	}
 }
+
 else if (cmp(argv[1],"s","scan") && argc == 6)
 {
 	iface_scan* scan = new iface_scan();
@@ -149,24 +153,63 @@ else if (cmp(argv[1],"s","scan") && argc == 6)
 	}
 	delete scan;
 }
-else if (cmp(argv[1], "q", "quarantine") && (argc == 3 || argc == 4 ))
+else if (cmp(argv[1], "q", "quarantine") && argc > 2 && argc < 10)
 {
-	iface_quarantine q;
 	if (cmp(argv[2], "l", "list"))
 	{
-		q.list();
+		iface_quarantine::list();
 	}
 	else if (cmp(argv[2], "a", "add"))
 	{
-		q.add(argv[3]);
+		int key = 0; char* foundVirus = "UNKNOWN";
+		if (cmp(argv[4], "e", "encryption"))
+		{
+			if (cmp(argv[5], "k", "key"))
+
+			{
+				key = atoi(argv[6]);
+			}
+			else
+			{
+				cout << "[-] Invalid encryption option !!" << endl;
+				printHelp("quarantine");
+			}
+			if (cmp(argv[7], "fv", "found-virus"))
+			{
+				foundVirus = argv[8];
+			}
+		}
+		else if (cmp(argv[4], "fv", "found-virus"))
+		{
+			foundVirus = argv[5];
+			if (cmp(argv[6], "e", "encryption"))
+			{
+				if (cmp(argv[7], "k", "key"))
+
+				{
+					key = atoi(argv[6]);
+				}
+				else
+				{
+					cout << "[-] Invalid encryption option !!" << endl;
+					printHelp("quarantine");
+				}
+			}
+		}
+		
+			iface_quarantine::add(argv[3],foundVirus,key);
 	}
 	else if (cmp(argv[2], "d", "delete"))
 	{
-		q.remove(atoi(argv[3]));
+		iface_quarantine::remove(atoi(argv[3]));
 	}
 	else if (cmp(argv[2],"r","restore"))
 	{
-		q.restore(atoi(argv[3]));
+		iface_quarantine::restore(atoi(argv[3]));
+	}
+	else if (cmp(argv[2], "c", "clear"))
+	{
+		iface_quarantine::clear();
 	}
 	else
 	{
@@ -176,20 +219,41 @@ else if (cmp(argv[1], "q", "quarantine") && (argc == 3 || argc == 4 ))
 }
 else if (cmp(argv[1],"u","update") && (argc==3 || argc==4 || argc ==5))
 {
-	iface_update u;
-	if (cmp(argv[2], "v", "version"))
+	if (cmp(argv[2], "c", "core"))
 	{
-		u.UpdateVersion();
+		if (iface_update::UpdateCore()==-1)
+		{
+			cout << "[-] Error Updating core from arma server, check connection status !" << endl;
+		}
+		else
+			cout << "[+] Core Updated successfully !!" << endl;
+	}
+	else if (cmp(argv[2], "g", "gui"))
+	{
+		if (iface_update::UpdateGUI() == -1)
+		{
+			cout << "[-] Error Updating GUI from arma server, check connection status !" << endl;
+		}
+		else
+			cout << "[+] GUI Updated successfully !!" << endl;
 	}
 	else if (cmp(argv[2], "d", "database"))
 	{
 		if (cmp(argv[3], "r", "remotely"))
 		{
-			u.UpdateDatabaseRemotely();
+			iface_update::UpdateDbRemotely();
 		}
 		else if (cmp(argv[3], "l", "locally"))
 		{
-			u.UpdateDatabaseLocally(argv[4]);
+			if (cmp(argv[4],"b","bmdb"))
+			{
+				iface_update::UpdateBMHDBLocally(argv[5]);
+			}
+			if (cmp(argv[4], "a", "acdb"))
+			{
+				iface_update::UpdateACDBLocally(argv[5]);
+			}
+
 		}
 		else
 		{
@@ -207,8 +271,8 @@ else if (cmp(argv[1],"u","update") && (argc==3 || argc==4 || argc ==5))
 
 else
 {
-	cout << "[-]Error Parsing the given switches .. "<<endl;
-	cout << "[-]Check again considering switches in proper order .."<<endl;
+	cout << "[-] Error Parsing the given switches .. "<<endl;
+	cout << "[-] Check again considering switches in proper order .."<<endl;
 	printHelp("xx");
 }
 

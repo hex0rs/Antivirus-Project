@@ -57,25 +57,24 @@ void Shared::Common::File::printFile(char* path)
 string Shared::Common::File::getFileName(string path) {
 
 	string temp = "";
-	string reversed = "";
-	for (int i = path.length(); i > -1; i--) {
-		if (path[i] != '\\' && path[i] != '/') {
-			temp += path[i];
-		} else
+	for (int i = path.length(); i > -1; i--)
+	{
+		if (path[i] != '\\' && path[i] != '/') 
+		{
+			temp = &path[i];
+		}
+		else
 			break;
 	}
 
-	for (int i = temp.length() - 1; i > -1; i--)
-		reversed += temp[i];
-
-	return reversed;
+	return temp;
 }
 
 string Shared::Common::File::getLastLine(fstream* file)
 {
 	string lastline;
 	file->seekg(0, file->end);
-	int length = file->tellg();
+	int length = (int)file->tellg();
 	file->seekg(0, file->beg);
 	char c = ' ';
 	for (int i = length - 2; i > 0; i--)
@@ -90,12 +89,13 @@ string Shared::Common::File::getLastLine(fstream* file)
 }
 int Shared::Common::File::encryptFile(char* path,int key)
 {
+	if (key == 0)	return 1;
 	FILE* f;
 	fopen_s(&f, path, "rb+");
 	if (f == NULL)
 		return -1;
 	fseek(f, 0, SEEK_END);
-	long size = ftell(f); char c = 'a';
+	long size = 1000; char c = 'a';
 	rewind(f);
 	for (long i = 0; i < size; i++)
 	{
@@ -109,12 +109,13 @@ int Shared::Common::File::encryptFile(char* path,int key)
 }
 int Shared::Common::File::decryptFile(char* path,int key)
 {
+	if (key == 0)	return 1;
 	FILE* f;
 	fopen_s(&f, path, "rb+");
 	if (f == NULL)
 		return -1;
 	fseek(f, 0, SEEK_END);
-	long size = ftell(f); char c = 'a';
+	long size = 1000; char c = 'a';
 	rewind(f);
 	for (long i = 0; i < size; i++)
 	{

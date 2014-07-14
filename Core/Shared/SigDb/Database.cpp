@@ -51,7 +51,9 @@ int Shared::SigDb::Database::init()
 		for(int i=0; i<this->SignaturesNumber; i++)
 		{
 			getline(dbFile, (this->SignaturesList[i]).VirusName,':');
+			getline(dbFile, (this->SignaturesList[i]).SignatureType, ':');
 			getline(dbFile, (this->SignaturesList[i]).HexSignature, ':');
+			this->SignaturesList[i].SignatureSize = SignaturesList[i].HexSignature.length / 2;
 			this->SignaturesList[i].SigHextoASCII();
 			getline(dbFile, x);
 		}
