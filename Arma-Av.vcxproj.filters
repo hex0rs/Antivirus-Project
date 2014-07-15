@@ -24,9 +24,6 @@
     <ClCompile Include="core\shared\file\File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="core\shared\os\Windows.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="core\shared\quarantine\Quarantine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,6 +45,12 @@
     <ClCompile Include="core\tools\ndbtodb converter\NDBtoDb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Shared\OS\Windows\Windows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Shared\OS\Linux\Linux.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\interface\Interface.h">
@@ -57,9 +60,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\shared\file\File.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="core\shared\os\Windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\shared\quarantine\Quarantine.h">
@@ -86,24 +86,14 @@
     <ClInclude Include="core\tools\ndbtodb converter\NDBtoDb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Shared\OS\Windows\Windows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Shared\OS\Linux\LInux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Version" />
-    <None Include="README.md" />
-    <None Include="Quarantine\ReadMe.md" />
-    <None Include="Quarantine\Quarantine.qdb" />
-    <None Include="Help\h_help" />
-    <None Include="Help\h_info" />
-    <None Include="Help\h_quarantine" />
-    <None Include="Help\h_scan" />
-    <None Include="Help\h_update" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="tasks.txt" />
-    <Text Include="GUI\1-Status.txt" />
-    <Text Include="GUI\2-Scan.txt" />
-    <Text Include="GUI\3-Quarantine.txt" />
-    <Text Include="GUI\4-Settings.txt" />
-    <Text Include="GUI\5-Help.txt" />
+    <None Include="Settings" />
   </ItemGroup>
 </Project>

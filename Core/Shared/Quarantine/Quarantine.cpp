@@ -9,11 +9,11 @@ using namespace Shared::Common;
 
 
 
-
-Qdb::Qdb()
+Qdb::Qdb(string QdbPath)
 {
-	this->QdbPath = QuarantinePath;
+	this->QdbPath = (char*)QdbPath.c_str();
 }
+
 
 
 int Qdb::add(char* path,char* foundVirus,int key)

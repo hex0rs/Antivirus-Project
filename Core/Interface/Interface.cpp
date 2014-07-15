@@ -6,10 +6,55 @@
  */
 #include "Interface.h"
 
+
 using namespace std;
 using namespace Shared::Common;
 using namespace Techniques::Static;
 using namespace Shared::SigDb;
+void initSet()
+{
+	fstream settings("Settings", ios::in | ios::beg);
+	string tep;
+	if (!settings.good())
+	{
+		cout << "[-] Error intializing the settings file !!" << endl;
+	}
+	int i = 0; 
+	while (!settings.eof())
+	{
+		if (i == 0)
+		{
+			getline(settings, QuarantinePath);
+		}
+		else if (i == 1)
+		{
+			getline(settings, VersionPath);
+		}
+		else if (i == 2)
+		{
+			getline(settings, VersionURL);
+		}
+		else if (i == 3)
+		{
+			getline(settings, bmdbPath);
+		}
+		else if (i == 4)
+		{
+			getline(settings, bmdbURL);
+		}
+		else if (i == 5)
+		{
+			getline(settings, acdbPath);
+		}
+		else if (i == 6)
+		{
+			getline(settings, acdbURL);
+		}
+		else
+			break;
+		i++;
+	}
+}
 bool cmp(char* arg, char* opt1, char* opt2)
 {
 	if (arg == NULL)
@@ -153,7 +198,6 @@ void printHelp(char* opt)
 	}
 	
 }
-
 void scan_result::printResult()
 {
 	if(!this->isInfected)
@@ -166,6 +210,24 @@ void scan_result::printResult()
 }
 
 //iface_scan
+int iface_scan::parseFile()
+{
+	string ext = File::getExt(this->path);
+	if (ext == "exe" || ext == "dll")
+		return 1;
+	if (ext == "vb")
+		return 2;
+	if (ext == "html" || ext == "htm")
+		return 3;
+	if (ext == "eml")
+		return 4;
+	if (ext == "jpeg" || ext == "jpg" || ext == "png" || ext == "gif" || ext == "psd" || ext == "flv" || ext == "mp4" || ext == "wmv"
+		|| ext == "rmvb" || ext == "mp3" || ext == "avi" || ext == "mkv" || ext == "wma")
+		return 5;
+	if (ext == "txt" || ext == "doc" || ext == "docx")
+		return 7;
+	return 0;
+}
 void iface_scan::setScanMethod()
 {
 	if(strcmp(this->scanMethod,"bmh") == 0)
@@ -182,17 +244,27 @@ void iface_scan::scan_file()
 	scan_result result;
 	if (this->ScanMethodNum == 1)
 	{
-		Database db(bmdbPath);
-		db.init();
+		Database db((char*)bmdbPath.c_str());
+		if (db.init() == -1)
+		{
+			cout << "[-] Intialization Failed .. check bmdb path in settings file !!";
+			return;
+		}
 		File f(this->path);
+		int type = this->parseFile();
 		BMH bm;
+		cout << "[+] Starting scanning . . ." << endl;
 		for (int i = 0; i < db.SignaturesNumber; i++)
 		{
-			if (bm.search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize, f.Buffer, f.BufferSize) != -1)
+			printf("[+] Progress : %2d %%\r", i * 100 / (db.SignaturesNumber) + 1);
+			if (type == stoi(db.SignaturesList[i].SignatureType))
 			{
-				result.isInfected = true;
-				result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
-				break;
+				if (bm.search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize, f.Buffer, f.BufferSize) != -1)
+				{
+					result.isInfected = true;
+					result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
+					break;
+				}
 			}
 		}
 		result.printResult();
@@ -206,26 +278,26 @@ void iface_scan::scan_file()
 	{
 
 	}
-	scan_result::printResult(result);
+	result.printResult();
 }
 void iface_scan::scan_directory()
 {
 	scan_result result;
 	result.isInfected = true;
 	result.virusName = "mo7a firus";
-	scan_result::printResult(result);
+	result.printResult();
 }
 
 //iface_quarantine
 void iface_quarantine::list()
 {
-	Qdb quarantine;
+	Qdb quarantine(QuarantinePath);
 	quarantine.list();
 
 }
 void iface_quarantine::add(char* path,char* foundVirus,int key)
 {
-	Qdb quarantine;
+	Qdb quarantine(QuarantinePath);
 	if (quarantine.add(path, foundVirus, key) == -1)
 		cout << "[-] Error Adding this file to quarantine !!" << endl;
 	else
@@ -234,7 +306,7 @@ void iface_quarantine::add(char* path,char* foundVirus,int key)
 }
 void iface_quarantine::restore(int qID)
 {
-	Qdb quarantine;
+	Qdb quarantine(QuarantinePath);
 	if (quarantine.restore(qID) == -1)
 		cout << "[-] Error restoring this file from quarantine !!" << endl;
 	else
@@ -243,7 +315,7 @@ void iface_quarantine::restore(int qID)
 }
 void iface_quarantine::remove(int qID)
 {
-	Qdb quarantine;
+	Qdb quarantine(QuarantinePath);
 	if (quarantine.remove(qID) == -1)
 		cout << "[-] Error deleting this file from quarantine !!" << endl;
 	else
@@ -251,7 +323,7 @@ void iface_quarantine::remove(int qID)
 }
 void iface_quarantine::clear()
 {
-	Qdb quarantine;
+	Qdb quarantine(QuarantinePath);
 	if (quarantine.clear() == -1)
 		cout << "[-] Error Clearing Quarantine !!" << endl;
 	else
@@ -301,8 +373,8 @@ int iface_state::GetCurrentVersion()
 }
 int iface_state::GetLatestVersion()
 {
-	char* new_ver = File::addExt(VersionPath, ".newVer");
-	if (OS::downloadFile(VersionURL, new_ver) == -1)
+	char* new_ver = File::addExt((char*)VersionPath.c_str(), ".newVer");
+	if (OS::downloadFile((char*)VersionURL.c_str(), new_ver) == -1)
 		return -1;
 	else
 	{
@@ -322,6 +394,7 @@ int iface_state::GetLatestVersion()
 void iface_state::GetQuarantineState()
 {
 }
+
 
 
 

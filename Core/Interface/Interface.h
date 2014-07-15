@@ -25,15 +25,9 @@
 #include "../Shared/OS/Linux.h"
 #endif
 
-char* QuarantinePath = "Quarantine/quarantine.qdb";
-char* VersionPath = "Version";
-char* VersionURL = "http://www.arma-av.allalla.com/Version";
-char* bmdbPath = "Databases/bmdb/orig.bmdb";
-char* acdbPath = "";
-char* bmdbURL = "";
-char* acdbURL = "";
-bool cmp(char* arg, char* opt1, char* opt2);
 
+bool cmp(char* arg, char* opt1, char* opt2);
+void initSet();
 void printBanner();
 void printHelp(char* opt);
 
@@ -56,7 +50,7 @@ public:
 	char* path;
 	void scan_file();
 	void scan_directory();
-
+	int parseFile();
 
 };
 class iface_quarantine
@@ -85,5 +79,13 @@ public:
 	static int GetLatestVersion();
 	static void GetQuarantineState();
 };
+
+extern string QuarantinePath;
+extern string VersionPath;
+extern string VersionURL;
+extern  string bmdbPath;
+extern  string acdbPath;
+extern  string bmdbURL;
+extern  string acdbURL;
 
 #endif /* INTERFACE_H_ */

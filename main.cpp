@@ -11,7 +11,13 @@ using namespace Techniques::Static;
 using namespace Shared::Common;
 using namespace Shared::SigDb;
 
-
+string QuarantinePath = " ";
+string VersionPath = " ";
+string VersionURL = " ";
+string bmdbPath = " ";
+string acdbPath = " ";
+string bmdbURL = " ";
+string acdbURL = " ";
 
 int main(int argc, char* argv[])
 {
@@ -61,6 +67,8 @@ int main(int argc, char* argv[])
 	AhoCorasick test();*/
 
 	printBanner();
+//initialize settings
+	initSet();
 // parsing the classic way
 if(argc < 2)
 {
@@ -87,8 +95,19 @@ else if(cmp(argv[1],"cv","check"))
 		cout << "[-] Error finding latest version file" << endl;
 	}
 }
+else if (cmp(argv[1], "cdb", "ndb2db"))
+{
+	if (cmp(argv[2], "i", "input"))
+	{
+		cout << "[+] Converting " << argv[3] << ". . ." << endl;
+		if (cmp(argv[4], "o", "output"))
+			NDBtoDbConverter(argv[3], argv[5]);
+		else
+			NDBtoDbConverter(argv[3], "Databases/bmdb/out.db");
+	}
+}
 
-else if (cmp(argv[1],"s","scan") && argc == 6)
+else if (cmp(argv[1],"s","scan"))
 {
 	iface_scan* scan = new iface_scan();
 	if(cmp(argv[2],"f","file"))
@@ -98,7 +117,7 @@ else if (cmp(argv[1],"s","scan") && argc == 6)
 		{
 			scan->scanMethod = argv[5];
 			scan->setScanMethod();
-			if (scan->ScanMethodNum < 0)
+			if (scan->ScanMethodNum != -1)
 				scan->scan_file();
 			else
 				cout << "[-] Invalid method !! use [bmh / ac / both] !!"<<endl;
@@ -153,7 +172,7 @@ else if (cmp(argv[1],"s","scan") && argc == 6)
 	}
 	delete scan;
 }
-else if (cmp(argv[1], "q", "quarantine") && argc > 2 && argc < 10)
+else if (cmp(argv[1], "q", "quarantine"))
 {
 	if (cmp(argv[2], "l", "list"))
 	{
@@ -217,7 +236,7 @@ else if (cmp(argv[1], "q", "quarantine") && argc > 2 && argc < 10)
 		printHelp("quarantine");
 	}
 }
-else if (cmp(argv[1],"u","update") && (argc==3 || argc==4 || argc ==5))
+else if (cmp(argv[1],"u","update"))
 {
 	if (cmp(argv[2], "c", "core"))
 	{

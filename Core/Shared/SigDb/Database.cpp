@@ -36,9 +36,14 @@ int Shared::SigDb::Database::init()
 {
 		if(!this->Path)
 		{
+			cout << "[-] Error locating bmdb database !!" << endl;
 			return -1;
 		}
+		cout << "[+] Intializing BMDB . . ."<< endl; 
+		double perc = 0;
 		ifstream dbFile(this->Path,ios::in);
+		if (!dbFile.good())
+			return -1;
 		dbFile.seekg(ios::beg);
 		//Header Parsing
 		getline(dbFile, this->Version,':');
@@ -50,13 +55,16 @@ int Shared::SigDb::Database::init()
 		this->SignaturesList = new Signature[this->SignaturesNumber];
 		for(int i=0; i<this->SignaturesNumber; i++)
 		{
+			
+			printf("[+] Progress : %2d %% || %d signatures loaded\r", i * 100 / (this->SignaturesNumber)+1,i);
 			getline(dbFile, (this->SignaturesList[i]).VirusName,':');
 			getline(dbFile, (this->SignaturesList[i]).SignatureType, ':');
-			getline(dbFile, (this->SignaturesList[i]).HexSignature, ':');
-			this->SignaturesList[i].SignatureSize = SignaturesList[i].HexSignature.length / 2;
-			this->SignaturesList[i].SigHextoASCII();
+			getline(dbFile, (this->SignaturesList[i]).HexSignature, ':'); 
 			getline(dbFile, x);
+			(this->SignaturesList[i]).SignatureSize = stoi(x);
+			this->SignaturesList[i].SigHextoASCII();
 		}
+		cout << endl << "[+] BMDB Intailization finished successfully !!" << endl;
 		return 0;
 }
 

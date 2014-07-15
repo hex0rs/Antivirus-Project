@@ -19,7 +19,6 @@ Shared::SigDb::Signature::Signature()
 Shared::SigDb::Signature::Signature(char* HexSignature)
 {
 	this->HexSignature = HexSignature;
-	this->SignatureSize = strlen(HexSignature) / 2;
 }
 
 int Shared::SigDb::Signature::SigHextoASCII()

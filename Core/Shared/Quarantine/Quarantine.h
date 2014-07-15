@@ -7,9 +7,9 @@
 #include "../Shared.h"
 #include <sstream>
 #ifdef WIN32
-#include "../OS/Windows.h"
+#include "../OS/Windows/Windows.h"
 #else
-#include "../OS/Linux.h"
+#include "../OS/Linux/Linux.h"
 #endif
 class Qfile
 {
@@ -25,8 +25,7 @@ public:
 class Qdb
 {
 public:
-	Qdb();
-	Qdb(char* QdbPath);
+	Qdb(string QdbPath);
 	char* QdbPath;
 	int init();
 	int add(char* path,char* foundVirus,int key);

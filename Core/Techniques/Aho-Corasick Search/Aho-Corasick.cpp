@@ -34,7 +34,7 @@ if (d.init()==-1)
 for(int i=0;i<d.SignaturesNumber;i++)
 {
 
-  Add( d.SignaturesList[i].HexSignature, d.SignaturesList[i].VirusName,d.SignaturesList[i].type,1);
+  Add( d.SignaturesList[i].HexSignature, d.SignaturesList[i].VirusName,d.SignaturesList[i].SignatureType,1);
 }
 
 Build_Fail_Edges();

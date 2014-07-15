@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8AC2C283-60C8-4F0E-A1B0-08A3DAF450B1}</ProjectGuid>
+    <ProjectGuid>{4FF2F6AB-DF98-4AF6-A3AB-04F1EBC5E72E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -73,7 +73,8 @@
   <ItemGroup>
     <ClCompile Include="core\interface\Interface.cpp" />
     <ClCompile Include="core\shared\file\File.cpp" />
-    <ClCompile Include="core\shared\os\Windows.cpp" />
+    <ClCompile Include="Core\Shared\OS\Linux\Linux.cpp" />
+    <ClCompile Include="Core\Shared\OS\Windows\Windows.cpp" />
     <ClCompile Include="core\shared\quarantine\Quarantine.cpp" />
     <ClCompile Include="core\shared\sigdb\Database.cpp" />
     <ClCompile Include="core\shared\sigdb\Signature.cpp" />
@@ -86,7 +87,8 @@
   <ItemGroup>
     <ClInclude Include="core\interface\Interface.h" />
     <ClInclude Include="core\shared\file\File.h" />
-    <ClInclude Include="core\shared\os\Windows.h" />
+    <ClInclude Include="Core\Shared\OS\Linux\LInux.h" />
+    <ClInclude Include="Core\Shared\OS\Windows\Windows.h" />
     <ClInclude Include="core\shared\quarantine\Quarantine.h" />
     <ClInclude Include="core\shared\Shared.h" />
     <ClInclude Include="core\shared\sigdb\Database.h" />
@@ -98,23 +100,7 @@
     <ClInclude Include="core\tools\ndbtodb converter\NDBtoDb.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Help\h_help" />
-    <None Include="Help\h_info" />
-    <None Include="Help\h_quarantine" />
-    <None Include="Help\h_scan" />
-    <None Include="Help\h_update" />
-    <None Include="Quarantine\Quarantine.qdb" />
-    <None Include="Quarantine\ReadMe.md" />
-    <None Include="README.md" />
-    <None Include="Version" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="GUI\1-Status.txt" />
-    <Text Include="GUI\2-Scan.txt" />
-    <Text Include="GUI\3-Quarantine.txt" />
-    <Text Include="GUI\4-Settings.txt" />
-    <Text Include="GUI\5-Help.txt" />
-    <Text Include="tasks.txt" />
+    <None Include="Settings" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

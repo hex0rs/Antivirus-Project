@@ -39,12 +39,7 @@ void Shared::Common::File::Process()
 	input_file.close();
 }
 
-void Shared::Common::File::Process(char* FilePath)
-{
-	this->FilePath = FilePath;
-	this->Process();
 
-}
 
 void Shared::Common::File::printFile(char* path)
 {
@@ -54,19 +49,16 @@ void Shared::Common::File::printFile(char* path)
 		cout << line << endl;
 }
 
-string Shared::Common::File::getFileName(string path) {
-
+string Shared::Common::File::getFileName(string path)
+{
 	string temp = "";
 	for (int i = path.length(); i > -1; i--)
 	{
 		if (path[i] != '\\' && path[i] != '/') 
-		{
 			temp = &path[i];
-		}
 		else
 			break;
 	}
-
 	return temp;
 }
 
@@ -140,4 +132,20 @@ char* Shared::Common::File::removeExt(char* name, int len)
 	memcpy(new_path, name, strlen(name) - len);
 	new_path[strlen(name) - len] = '\0';
 	return new_path;
+}
+string Shared::Common::File::getExt(char* path)
+{
+	string ext = "";
+	string temp = "";
+	for (int i = strlen(path)-1; i > 0 ; i--)
+	{
+		if (path[i] != '.')
+		{
+			temp = path[i];
+			ext.append(temp);
+		}
+		else
+			break;
+	}
+	return ext;
 }
