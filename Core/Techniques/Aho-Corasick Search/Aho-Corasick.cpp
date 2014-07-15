@@ -11,6 +11,12 @@ Techniques::Static::AhoCorasick::AhoCorasick(void)
   Search_Result = -1;
 }
 
+Techniques::Static::AhoCorasick::~AhoCorasick(void)
+{
+  //When out of scope the destructor will call the default destructor of Search_Result
+}
+
+
 Techniques::Static::AhoCorasick::AhoCorasick(char* text,unsigned int text_size)
 {
     LoadDB();
