@@ -13,8 +13,6 @@ using namespace std;
 #define Signature_H
 class Shared::SigDb::Signature
 {
-protected:
-
 public:
 	string VirusName;
 	string HexSignature;

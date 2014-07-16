@@ -6,15 +6,17 @@
 
 
 
-namespace Techniques {
+namespace Techniques
+{
+	namespace Static 
+	{
+		class BMH;
+		class AhoCorasick;
+	}
+	namespace Dynamic 
+	{
 
-namespace Static {
-	class BMH;
-	class AhoCorasick;
-}
-
-namespace Dynamic {}
-
+	}
 }
 
 

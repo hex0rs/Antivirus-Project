@@ -42,6 +42,11 @@ void Techniques::Static::BMH::create_BadMatchTable(char *pattern,int PatternSize
 	}
 }
 
+int Techniques::Static::BMH::search()
+{
+	return Techniques::Static::BMH::search(this->text, this->text_size, this->pattern, this->pattern_size);
+}
+
 int  Techniques::Static::BMH::search(char *text,int TextSize, char *pattern,int PatternSize)
 {
 
@@ -67,10 +72,7 @@ int  Techniques::Static::BMH::search(char *text,int TextSize, char *pattern,int 
 	return -1;
 }
 
-int Techniques::Static::BMH::search()
-{
-	return Techniques::Static::BMH::search(this->text, this->text_size, this->pattern, this->pattern_size);
-}
+
 
 
 

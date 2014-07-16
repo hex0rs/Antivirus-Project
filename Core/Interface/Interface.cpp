@@ -393,6 +393,10 @@ int iface_state::GetLatestVersion()
 }
 void iface_state::GetQuarantineState()
 {
+	ifstream quarantine(QuarantinePath);
+	__int64 line_count;
+	line_count = count(istreambuf_iterator<char>(quarantine), istreambuf_iterator<char>(), '\n');
+	cout << "[+] Quarantine Files Number : " << line_count - 1 << endl;
 }
 
 

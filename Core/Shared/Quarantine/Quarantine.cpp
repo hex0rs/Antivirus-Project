@@ -151,7 +151,6 @@ int Qdb::remove(int qID)
 	getline(stream, path, '|'); //get path
 	const char* path_c = path.c_str();
 	//delete file
-	if (OS::closeProcess((char*)path_c) == -1) return -1;
 	OS::deleteFile(path_c);
 	//return the quarantine records back to quarantine file
 	quarantine.close();

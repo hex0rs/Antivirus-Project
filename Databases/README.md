@@ -18,7 +18,7 @@ Header Scheme
 Signature Scheme
 -----------------
 
--  Virus Name : Signature :
+-  Virus Name : virus type : Hex Signature : lenght
 
 
 	-----

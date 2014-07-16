@@ -20,12 +20,18 @@
 #include "../Techniques/Aho-Corasick Search/Aho-Corasick.h"
 #include "../Shared/SigDb/Database.h"
 #ifdef WIN32
-#include "../Shared/OS/Windows.h"
+#include "../Shared/OS/Windows/Windows.h"
 #else
 #include "../Shared/OS/Linux.h"
 #endif
 
-
+extern string QuarantinePath;
+extern string VersionPath;
+extern string VersionURL;
+extern  string bmdbPath;
+extern  string acdbPath;
+extern  string bmdbURL;
+extern  string acdbURL;
 bool cmp(char* arg, char* opt1, char* opt2);
 void initSet();
 void printBanner();
@@ -42,7 +48,6 @@ public:
 
 class iface_scan
 {
-
 public:
 	char* scanMethod;
 	int ScanMethodNum;
@@ -51,7 +56,6 @@ public:
 	void scan_file();
 	void scan_directory();
 	int parseFile();
-
 };
 class iface_quarantine
 {
@@ -80,12 +84,6 @@ public:
 	static void GetQuarantineState();
 };
 
-extern string QuarantinePath;
-extern string VersionPath;
-extern string VersionURL;
-extern  string bmdbPath;
-extern  string acdbPath;
-extern  string bmdbURL;
-extern  string acdbURL;
+
 
 #endif /* INTERFACE_H_ */
