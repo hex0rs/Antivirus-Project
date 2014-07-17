@@ -12,7 +12,7 @@
 #include "../Techniques.h"
 #include "../../Shared/SigDb/Database.h"
 #include "../../tools/NDBtoDB Converter/NDBtoDb.h"
-
+#include "../../Interface/Interface.h"
 
 class Techniques::Static::AhoCorasick
 {

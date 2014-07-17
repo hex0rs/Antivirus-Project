@@ -252,14 +252,13 @@ void iface_scan::scan_file()
 		}
 		File f(this->path);
 		int type = this->parseFile();
-		BMH bm;
 		cout << "[+] Starting scanning . . ." << endl;
 		for (int i = 0; i < db.SignaturesNumber; i++)
 		{
 			printf("[+] Progress : %2d %%\r", i * 100 / (db.SignaturesNumber) + 1);
-			if (type == stoi(db.SignaturesList[i].SignatureType) & db.SignaturesList[i].SignatureSize != -1)
+			if (type == stoi(db.SignaturesList[i].SignatureType) && db.SignaturesList[i].SignatureSize != -1)
 			{
-				if (bm.search( f.Buffer, f.BufferSize,db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize) != -1)
+				if (BMH::search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize,f.Buffer,f.BufferSize) != -1)
 				{
 					result.isInfected = true;
 					result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
@@ -272,6 +271,9 @@ void iface_scan::scan_file()
 	}
 	else if (this->ScanMethodNum == 2)
 	{
+		AhoCorasick ac; File f(this->path);
+		ac.LoadDB();
+		ac.Search(f.Buffer, f.BufferSize);
 
 	}
 	else if (this->ScanMethodNum == 3)

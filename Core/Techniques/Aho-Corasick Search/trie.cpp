@@ -16,8 +16,7 @@ Node* Init()
 
 void Add(std::string signature,std::string name,std::string type,unsigned int danger_level)
 {
-    Node *current = Root;
-
+    Node *current = Init();
     for(unsigned int a=0;a<signature.length();a++)
     {
         int casted_digit = (int) signature[a];

@@ -24,6 +24,12 @@
     <ClCompile Include="core\shared\file\File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\shared\os\linux\Linux.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\shared\os\windows\Windows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="core\shared\quarantine\Quarantine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,12 +51,6 @@
     <ClCompile Include="core\tools\ndbtodb converter\NDBtoDb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Shared\OS\Windows\Windows.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Shared\OS\Linux\Linux.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\interface\Interface.h">
@@ -60,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\shared\file\File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\shared\os\linux\LInux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\shared\os\windows\Windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\shared\quarantine\Quarantine.h">
@@ -86,14 +92,5 @@
     <ClInclude Include="core\tools\ndbtodb converter\NDBtoDb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Shared\OS\Windows\Windows.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Shared\OS\Linux\LInux.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Settings" />
   </ItemGroup>
 </Project>

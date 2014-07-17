@@ -18,7 +18,7 @@ public:
 	string Version;
 	string UpdateDate;
 	int  SignaturesNumber;
-	Signature* SignaturesList;
+	vector<Signature> SignaturesList;
 	//constructors
 	Database();
 	Database(char* Path);

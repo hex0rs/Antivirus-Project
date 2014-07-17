@@ -6,53 +6,20 @@
  */
 #include "BMH.h"
 
-
 using namespace std;
 using namespace Techniques::Static;
 
-
-
-
-// Constructor Definition
-
-Techniques::Static::BMH::BMH()
+int  Techniques::Static::BMH::search(char* pattern, int pattern_size, char* text, int text_size)
 {
-
-}
-
-Techniques::Static::BMH::BMH(char* pattern, int pattern_size, char* text, int text_size)
-{
-	this->pattern = pattern;
-	this->pattern_size = pattern_size;
-	this->text = text;
-	this->text_size = text_size;
-
-}
-
-void Techniques::Static::BMH::create_BadMatchTable(char *pattern,int PatternSize)
-{
-	int pattern_length = PatternSize;
-	for(int i=0;i<MAX_ALPHABET;i++)
+	//creating bad match table
+	vector<unsigned char> BadMatchTable;
+	int pattern_length = pattern_size;
+	BadMatchTable.assign(256, pattern_length);
+	for (int i = 0; i < pattern_length - 1; i++)
 	{
-		this->BadMatchTable[i] =  pattern_length;
+		BadMatchTable[pattern[i]] = pattern_length - 1 - i;
 	}
-	for(int i = 0; i < pattern_length - 1; i++)
-	{
-		this->BadMatchTable[pattern[i]] = pattern_length - 1 - i;
-	}
-}
-
-int Techniques::Static::BMH::search()
-{
-	return Techniques::Static::BMH::search(this->text, this->text_size, this->pattern, this->pattern_size);
-}
-
-int  Techniques::Static::BMH::search(char *text,int TextSize, char *pattern,int PatternSize)
-{
-
-	create_BadMatchTable(pattern,PatternSize);
-	int pattern_length = PatternSize;
-	int text_length = TextSize;
+	int text_length = text_size;
 	int scan_pos = 0;
 	int pat_pos = pattern_length - 1;
 	while(text_length >= pattern_length)
@@ -62,13 +29,12 @@ int  Techniques::Static::BMH::search(char *text,int TextSize, char *pattern,int 
 		{
 			if(pat_pos == 0)
 			{
-				return (TextSize - text_length);
+				return (text_size - text_length);
 			}
 		}
-		text_length -= this->BadMatchTable[(unsigned char)text[scan_pos]];
-		text += this->BadMatchTable[(unsigned char)text[scan_pos]];
+		text_length -= BadMatchTable[(unsigned char)text[scan_pos]];
+		text += BadMatchTable[(unsigned char)text[scan_pos]];
 	}
-
 	return -1;
 }
 
