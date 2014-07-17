@@ -39,7 +39,7 @@ if (d.init()==-1)
 
 for(int i=0;i<d.SignaturesNumber;i++)
 {
-  if( (string)"NULL" != d.SignaturesList[i].HexSignature)
+  if( "NULL" != d.SignaturesList[i].HexSignature)
   {
    Add( d.SignaturesList[i].HexSignature, d.SignaturesList[i].VirusName,d.SignaturesList[i].SignatureType,1);
   } 
