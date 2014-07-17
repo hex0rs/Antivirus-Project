@@ -25,6 +25,7 @@ class Techniques::Static::AhoCorasick
    public:
    AhoCorasick(void);
    AhoCorasick(char* text,unsigned int text_size);
+   ~AhoCorasick(void);
    int LoadDB(void);
    int Search(char* text,unsigned int text_size);
 };

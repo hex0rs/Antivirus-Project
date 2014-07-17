@@ -257,9 +257,9 @@ void iface_scan::scan_file()
 		for (int i = 0; i < db.SignaturesNumber; i++)
 		{
 			printf("[+] Progress : %2d %%\r", i * 100 / (db.SignaturesNumber) + 1);
-			if (type == stoi(db.SignaturesList[i].SignatureType))
+			if (type == stoi(db.SignaturesList[i].SignatureType) & db.SignaturesList[i].SignatureSize != -1)
 			{
-				if (bm.search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize, f.Buffer, f.BufferSize) != -1)
+				if (bm.search( f.Buffer, f.BufferSize,db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize) != -1)
 				{
 					result.isInfected = true;
 					result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
@@ -386,8 +386,9 @@ int iface_state::GetLatestVersion()
 		cout << "[+] GUI		: " << gui_vr << endl;
 		cout << "[+] BMH db	: " << bmdb_vr << endl;
 		cout << "[+] Aho db	: " << acdb_vr << endl;
-		return 0;
+		ver_file.close();
 	}
+	
 	OS::deleteFile(new_ver);
 	return 0;
 }

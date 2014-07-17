@@ -103,7 +103,7 @@ else if (cmp(argv[1], "cdb", "ndb2db"))
 		if (cmp(argv[4], "o", "output"))
 			NDBtoDbConverter(argv[3], argv[5]);
 		else
-			NDBtoDbConverter(argv[3], "Databases/bmdb/out.db");
+			NDBtoDbConverter(argv[3], "Databases/bmdb/out.bmdb");
 	}
 }
 
@@ -295,6 +295,4 @@ else
 	printHelp("xx");
 }
 
-
-cin.ignore();
 }
