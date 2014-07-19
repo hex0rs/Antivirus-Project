@@ -42,6 +42,7 @@ int Techniques::Static::AhoCorasick::LoadDB(void)
 	if (DB_ver != ADB_ver) //Trie database isn't updated up to signatures database
 	{
 		CreateTrie();
+		ADB_ver = DB_ver;
 
 		if (!SavingTrie()) //No error occured while saving database
 		{
