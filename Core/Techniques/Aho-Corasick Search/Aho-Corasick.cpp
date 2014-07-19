@@ -42,9 +42,11 @@ int Techniques::Static::AhoCorasick::LoadDB(void)
 	if (DB_ver != ADB_ver) //Trie database isn't updated up to signatures database
 	{
 		CreateTrie();
+		
 
 		if (!SavingTrie()) //No error occured while saving database
 		{
+			ADB_ver = DB_ver;
 			Version << core_ver << gui_ver << DB_ver << ADB_ver; //trie database became updated so both version are the same
 			Version.close();
 		}
