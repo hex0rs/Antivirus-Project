@@ -21,13 +21,13 @@ void Add(std::string signature,std::string name,std::string type,unsigned int da
     {
         int casted_digit = (int) signature[a];
 
-        if(casted_digit > 57) //The digit was a hex char not a number
+        /*if(casted_digit > 57) //The digit was a hex char not a number
            casted_digit = casted_digit - (int) 'A' + 10;
         else
-           casted_digit = casted_digit - (int) '0';
+           casted_digit = casted_digit - (int) '0';*/
 
         if(NULL == current->Children[casted_digit])
-		{
+	{
            current->Children[casted_digit] = new Node();
            current->Children[casted_digit]->ch = signature[a];
            current->Children[casted_digit]->ID = Add_calls++;
@@ -98,10 +98,10 @@ Node* Go_To(Node* node,char ch)
 {
     int casted_digit = (int) ch;
 
-        if(casted_digit > 57) //The digit was a hex char not a number
+       /* if(casted_digit > 57) //The digit was a hex char not a number
            casted_digit = casted_digit - (int) 'A' + 10;
         else
-           casted_digit = casted_digit - (int) '0';
+           casted_digit = casted_digit - (int) '0';*/
 
       if(NULL == node->Children[casted_digit])
         {
