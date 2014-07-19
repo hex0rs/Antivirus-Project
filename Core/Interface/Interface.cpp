@@ -332,9 +332,97 @@ void iface_scan::scan_file()
 }
 void iface_scan::scan_directory()
 {
-	scan_result result;
-	
-	result.printResult();
+	scan_result result; string path = this->path;
+	scanning:
+	vector<string> files = OS::listDirectory((char*)path.c_str());
+	for (int i = 2; i < files.size(); i++)
+	{
+		path = files[i];
+
+		if (this->ScanMethodNum == 1)
+		{
+			Database db((char*)bmdbPath.c_str());
+			if (db.init() == -1)
+			{
+				cout << "[-] Intialization Failed .. check bmdb path in settings file !!";
+				return;
+			}
+			auto_ptr<File> f(new File);
+			this->path = (char*)path.c_str();
+			f->FilePath = this->path;
+			f->Process();
+			int type = this->parseFile();
+			cout << "\n[+] Scanning '" << File::getFileName(this->path) << "' file . . ." << endl;
+			for (int i = 0; i < db.SignaturesNumber; i++)
+			{
+				printf("[+] Progress : %2d %%\r", i * 100 / (db.SignaturesNumber) + 1);
+				if (type == stoi(db.SignaturesList[i].SignatureType) && db.SignaturesList[i].SignatureSize != -1 && f->BufferSize > db.SignaturesList[i].SignatureSize)
+				{
+					if (BMH::search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize, f->Buffer, f->BufferSize) != -1)
+					{
+						result.isInfected = true;
+						result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
+						break;
+					}
+				}
+			}
+			f.reset();
+			result.printResult();
+		}
+		else if (this->ScanMethodNum == 2)
+		{
+			AhoCorasick ac; File f(this->path);
+			ac.LoadDB();
+			ac.Search(f.Buffer, f.BufferSize);
+
+		}
+		else if (this->ScanMethodNum == 3)
+		{
+
+			Database db((char*)bmdbPath.c_str());
+			if (db.init() == -1)
+			{
+				cout << "[-] Intialization Failed .. check bmdb path in settings file !!";
+				return;
+			}
+			cout << "[+] Scanning using Boyer Moore Horspool Algorithm . . ." << endl;
+			auto_ptr<File> f(new File);
+			this->path = (char*)path.c_str();
+			f->FilePath = this->path;
+			f->Process();
+			int type = this->parseFile();
+			cout << "\n[+] Scanning '" << File::getFileName(this->path) << "' file . . ." << endl;
+			for (int i = 0; i < db.SignaturesNumber; i++)
+			{
+				printf("[+] Progress : %2d %%\r", i * 100 / (db.SignaturesNumber) + 1);
+				if (type == stoi(db.SignaturesList[i].SignatureType) && db.SignaturesList[i].SignatureSize != -1)
+				{
+					if (BMH::search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize, f->Buffer, f->BufferSize) != -1)
+					{
+						result.isInfected = true;
+						result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
+						break;
+					}
+				}
+			}
+			result.printResult();
+			cout << "[+] Scanning using Aho Chorasick Algorithm . . ." << endl;
+			AhoCorasick ac;
+			ac.LoadDB();
+			ac.Search(f->Buffer, f->BufferSize);
+		}
+	}
+	char ans; cout << "\n[+] Do you want to scan another directory (y/n) ? ";
+	cin >> ans;
+	if (ans == 'y')
+	{
+		cout << "[+] Enter file path : ";
+		cin.ignore();
+		getline(cin, path);
+		goto scanning;
+	}
+	else
+		cout << "[+] Scanning Finished !!" << endl;
 }
 
 //iface_quarantine

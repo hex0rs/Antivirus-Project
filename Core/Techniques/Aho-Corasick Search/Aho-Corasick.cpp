@@ -5,7 +5,7 @@
 #include <map>
 
 Node* current;
-
+Node* root;
 Techniques::Static::AhoCorasick::AhoCorasick(char* text, unsigned int text_size)
 {
 	LoadDB();
@@ -127,7 +127,7 @@ int Techniques::Static::AhoCorasick::SavingTrie(void)
 
     std::queue<Node*> Opened;
 
-    Node* node = current;
+    Node* node = root;
     Opened.push(node);
 
 
@@ -136,11 +136,7 @@ int Techniques::Static::AhoCorasick::SavingTrie(void)
     {
         node = Opened.front();
 
-        ADB << node->ID << " "
-            << node->ch << " "
-            << node->IsLeaf << " "
-            << node->danger_level << " "
-            << node->Fail_Node->ID << " ";
+		ADB << node->ID << " " << node->ch << " " << node->IsLeaf << " " << node->danger_level << " " << node->Fail_Node->ID << " ";
 
         if(node->name == "") //There is no value
         ADB << "@ ";

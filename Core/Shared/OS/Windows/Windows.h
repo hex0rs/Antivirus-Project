@@ -17,7 +17,7 @@ class OS
 {
 public:
 	static int closeProcess(char* executablePath);
-	static vector<string> listDirectory(char* path, int* size);
+	static vector<string> listDirectory(char* path);
 	static void hideFile(char* path);
 	static void unhideFile(char* path);
 	static void deleteFile(const char* path);

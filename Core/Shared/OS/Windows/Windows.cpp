@@ -59,7 +59,7 @@ int OS::downloadFile(char* url, char* path2save)
 	else
 		return 1;
 }
-vector<string> OS::listDirectory(char* path, int* size)
+vector<string> OS::listDirectory(char* path)
 {
 	DIR *dir;
 	struct dirent *ent;

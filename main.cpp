@@ -135,7 +135,7 @@ else if (cmp(argv[1],"s","scan"))
 		{
 			scan->scanMethod = argv[5];
 			scan->setScanMethod();
-			if (scan->ScanMethodNum < 0)
+			if (scan->ScanMethodNum != -1)
 				scan->scan_directory();
 			else
 				cout << "[-] Invalid method !! use [bmh / ac / both] !!"<<endl;

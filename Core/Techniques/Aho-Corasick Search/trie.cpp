@@ -16,7 +16,8 @@ Node* Init()
 
 void Add(std::string signature,std::string name,std::string type,unsigned int danger_level)
 {
-	Node *current = Root;
+	Node* current = Init();
+	Node* root = Init();
     for(unsigned int a=0;a<signature.length();a++)
     {
         int casted_digit = (int) signature[a];
@@ -25,8 +26,8 @@ void Add(std::string signature,std::string name,std::string type,unsigned int da
            casted_digit = casted_digit - (int) 'A' + 10;
         else
            casted_digit = casted_digit - (int) '0';*/
-
-        if(NULL == current->Children[casted_digit])
+		std::map<int, Node*>::const_iterator it = current->Children.find(casted_digit);
+		if (it == current->Children.end())
 	{
            current->Children[casted_digit] = new Node();
            current->Children[casted_digit]->ch = signature[a];
