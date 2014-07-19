@@ -16,7 +16,7 @@ Node* Init()
 
 void Add(std::string signature,std::string name,std::string type,unsigned int danger_level)
 {
-    Node *current = Init();
+	Node *current = Root;
     for(unsigned int a=0;a<signature.length();a++)
     {
         int casted_digit = (int) signature[a];
@@ -26,7 +26,8 @@ void Add(std::string signature,std::string name,std::string type,unsigned int da
         else
            casted_digit = casted_digit - (int) '0';
 
-        if(NULL == current->Children[casted_digit]){
+        if(NULL == current->Children[casted_digit])
+		{
            current->Children[casted_digit] = new Node();
            current->Children[casted_digit]->ch = signature[a];
            current->Children[casted_digit]->ID = Add_calls++;

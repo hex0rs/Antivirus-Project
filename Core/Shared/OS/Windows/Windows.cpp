@@ -59,3 +59,24 @@ int OS::downloadFile(char* url, char* path2save)
 	else
 		return 1;
 }
+vector<string> OS::listDirectory(char* path, int* size)
+{
+	DIR *dir;
+	struct dirent *ent;
+	vector <string> dirList;
+	if ((dir = opendir(path)) != NULL)
+	{
+		/* print all the files and directories within directory */
+		while ((ent = readdir(dir)) != NULL)
+		{
+			dirList.push_back(ent->d_name);
+		}
+		closedir(dir);
+	}
+	else {
+		/* could not open directory */
+		perror("");
+		dirList.clear();
+	}
+	return dirList;
+}

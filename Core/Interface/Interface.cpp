@@ -201,10 +201,10 @@ void printHelp(char* opt)
 void scan_result::printResult()
 {
 	if(!this->isInfected)
-		cout << "[+] Healthy !!"<<endl;
+		cout << endl <<"[+] Healthy !!"<<endl;
 	else
 	{
-		cout << "[+] Infected !!"<<endl;
+		cout << endl << "[+] Infected !!" << endl;
 		cout << "[+] Virus Name : " << this->virusName <<endl;
 	}
 }
@@ -241,7 +241,7 @@ void iface_scan::setScanMethod()
 }
 void iface_scan::scan_file()
 {
-	scan_result result;
+	scan_result result; string path = this->path;
 	if (this->ScanMethodNum == 1)
 	{
 		Database db((char*)bmdbPath.c_str());
@@ -250,15 +250,19 @@ void iface_scan::scan_file()
 			cout << "[-] Intialization Failed .. check bmdb path in settings file !!";
 			return;
 		}
-		File f(this->path);
+	scanning:
+		auto_ptr<File> f(new File);
+		this->path = (char*)path.c_str();
+		f->FilePath = this->path;
+		f->Process();
 		int type = this->parseFile();
-		cout << "[+] Starting scanning . . ." << endl;
+		cout << "\n[+] Scanning '"<<File::getFileName(this->path)<<"' file . . ." << endl;
 		for (int i = 0; i < db.SignaturesNumber; i++)
 		{
 			printf("[+] Progress : %2d %%\r", i * 100 / (db.SignaturesNumber) + 1);
-			if (type == stoi(db.SignaturesList[i].SignatureType) && db.SignaturesList[i].SignatureSize != -1)
+			if (type == stoi(db.SignaturesList[i].SignatureType) && db.SignaturesList[i].SignatureSize != -1 && f->BufferSize > db.SignaturesList[i].SignatureSize)
 			{
-				if (BMH::search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize,f.Buffer,f.BufferSize) != -1)
+				if (BMH::search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize,f->Buffer,f->BufferSize) != -1)
 				{
 					result.isInfected = true;
 					result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
@@ -266,8 +270,19 @@ void iface_scan::scan_file()
 				}
 			}
 		}
+		f.reset();
 		result.printResult();
-
+		char ans; cout << "\n[+] Do you want to scan another file (y/n) ? ";
+		cin >> ans;
+		if (ans == 'y')
+		{
+			cout <<"[+] Enter file path : ";
+			cin.ignore();
+			getline(cin, path);
+			goto scanning;
+		}
+		else
+			cout << "[+] Scanning Finished !!" << endl;
 	}
 	else if (this->ScanMethodNum == 2)
 	{
@@ -278,15 +293,47 @@ void iface_scan::scan_file()
 	}
 	else if (this->ScanMethodNum == 3)
 	{
+		
+		Database db((char*)bmdbPath.c_str());
+		if (db.init() == -1)
+		{
+			cout << "[-] Intialization Failed .. check bmdb path in settings file !!";
+			return;
+		}	
+	scanningboth:
+		cout << "[+] Scanning using Boyer Moore Horspool Algorithm . . ." << endl;
+		auto_ptr<File> f(new File);
+		this->path = (char*)path.c_str();
+		f->FilePath = this->path;
+		f->Process();
+		int type = this->parseFile();
+		cout << "\n[+] Scanning '" << File::getFileName(this->path) << "' file . . ." << endl;
+		for (int i = 0; i < db.SignaturesNumber; i++)
+		{
+			printf("[+] Progress : %2d %%\r", i * 100 / (db.SignaturesNumber) + 1);
+			if (type == stoi(db.SignaturesList[i].SignatureType) && db.SignaturesList[i].SignatureSize != -1)
+			{
+				if (BMH::search(db.SignaturesList[i].AsciiSignature, db.SignaturesList[i].SignatureSize, f->Buffer, f->BufferSize) != -1)
+				{
+					result.isInfected = true;
+					result.virusName = (char*)db.SignaturesList[i].VirusName.c_str();
+					break;
+				}
+			}
+		}
+		result.printResult();
+
+		cout << "[+] Scanning using Aho Chorasick Algorithm . . ." << endl;
+		AhoCorasick ac;
+		ac.LoadDB();
+		ac.Search(f->Buffer, f->BufferSize);
 
 	}
-	result.printResult();
 }
 void iface_scan::scan_directory()
 {
 	scan_result result;
-	result.isInfected = true;
-	result.virusName = "mo7a firus";
+	
 	result.printResult();
 }
 

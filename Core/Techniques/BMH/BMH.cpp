@@ -17,7 +17,7 @@ int  Techniques::Static::BMH::search(char* pattern, int pattern_size, char* text
 	BadMatchTable.assign(256, pattern_length);
 	for (int i = 0; i < pattern_length - 1; i++)
 	{
-		BadMatchTable[pattern[i]] = pattern_length - 1 - i;
+		BadMatchTable[(unsigned char)pattern[i]] = pattern_length - 1 - i;
 	}
 	int text_length = text_size;
 	int scan_pos = 0;

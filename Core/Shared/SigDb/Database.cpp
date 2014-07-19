@@ -39,7 +39,7 @@ int Shared::SigDb::Database::init()
 			cout << "[-] Error locating bmdb database !!" << endl;
 			return -1;
 		}
-		cout << "[+] Intializing BMDB . . ."<< endl; 
+		cout << "[+] Intializing BMDB Database . . ."<< endl; 
 		double perc = 0;
 		ifstream dbFile(this->Path,ios::in);
 		if (!dbFile.good())
@@ -52,6 +52,7 @@ int Shared::SigDb::Database::init()
 		string x; getline(dbFile, x);
 		//Signature list filling
 		this->SignaturesNumber = atoi(this->SigNum.c_str());
+		this->SignaturesList.resize(this->SignaturesNumber);
 		for(int i=0; i<this->SignaturesNumber; i++)
 		{
 			

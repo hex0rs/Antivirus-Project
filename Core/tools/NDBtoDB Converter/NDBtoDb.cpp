@@ -24,7 +24,8 @@ void NDBtoDbConverter(char* NDBfile, char* DBfile)
 	__int64 line_count;
 	double prog = 0;
 	line_count = count(istreambuf_iterator<char>(input_NDBfile), istreambuf_iterator<char>(), '\n');
-	output_DBfile << currentDateTime() << ':' <<line_count+1 << ':' << endl;
+	string version; cout << "[+] Specify a bmdb database version : "; cin >> version;
+	output_DBfile << version << ':' << currentDateTime() << ':' << line_count + 1 << ':' << endl;
 	input_NDBfile.clear();
 	input_NDBfile.seekg(ios::beg);
 	if (input_NDBfile.good())

@@ -31,6 +31,11 @@ void Shared::Common::File::Process()
 {
 
 	ifstream input_file(this->FilePath, ios::in | ios::binary | ios::ate);
+	if (!input_file.good())
+	{
+		cout << "[-] Error processing the input file" << endl;
+		return;
+	}
 	this->FileSize = input_file.tellg();
 	input_file.seekg(0,ios::beg);
 	this->BufferSize = this->FileSize;
