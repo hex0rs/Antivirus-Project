@@ -211,10 +211,10 @@ int Techniques::Static::AhoCorasick::LoadingTrie(void)
           ADB >> ch;
           int casted = (int) ch;
 
-          if(casted > 57) //The digit was a hex char not a number
+          /*if(casted > 57) //The digit was a hex char not a number
            casted = casted - (int) 'A' + 10;
           else
-           casted = casted - (int) '0';
+           casted = casted - (int) '0';*/
 
           Nodes[ID]->Children[casted] = new Node();
           Nodes[ID]->Children[casted]->ch = ch;
