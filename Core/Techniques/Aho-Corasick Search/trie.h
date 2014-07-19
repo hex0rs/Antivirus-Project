@@ -1,9 +1,10 @@
 #ifndef TRIE_H_INCLUDED
 #define TRIE_H_INCLUDED
 
-#define HEX_SIZE 16
+#define HEX_SIZE 256
 
 #include <iostream>
+#include <map>
 
 struct Node
 {
@@ -14,7 +15,8 @@ struct Node
     std::string type;
     std::string name;
     Node *Fail_Node;
-    Node *Children[HEX_SIZE];
+    //Node *Children[HEX_SIZE];
+    std::map<int,Node*> Children;
     
     void operator= (Node a) //Providing = operator if needed to copy a Node to another
     {
@@ -26,13 +28,14 @@ struct Node
         this->name = a.name;
         this->type = a.type;
 
-        for(int i=0;i<HEX_SIZE;i++)
+        /*for(int i=0;i<HEX_SIZE;i++)
         {
             if(a.Children[i] != NULL)
             {
                 this->Children[i] = a.Children[i];
             }
-        }
+        }*/
+        this->Children.insert(a.Children.begin(),a.Children.end());
     }
     
 };
